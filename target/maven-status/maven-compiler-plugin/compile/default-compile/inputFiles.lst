@@ -1,8 +1,13 @@
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\EditProductServlet.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\GetUsersServlet.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\EditUserServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\CreateUserServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\GetProductsServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\UpdateProductServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\getProductPricesServlet.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\models\ResponseEntity.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\UpdateUserServlet.java
-C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\CreateUserServlet.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\NewUserServlet.java
-C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\GetProductsServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\GetProductById.java
 C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\GetUserByIdServlet.java
+C:\software\Eclipse_IDE_Workspace\homebakeryweb\src\main\java\in\fssa\homebakery\servlets\ViewProductDetailsServlet.java

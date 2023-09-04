@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import in.fssa.homebakery.dto.ProductDetailDTO;
 import in.fssa.homebakery.exception.ServiceException;
 import in.fssa.homebakery.exception.ValidationException;
-import in.fssa.homebakery.interfaces.ProductPricesInterface;
 import in.fssa.homebakery.model.ProductPrice;
 import in.fssa.homebakery.service.ProductPriceService;
 import in.fssa.homebakery.service.ProductService;
@@ -30,8 +29,7 @@ public class GetProductsServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		ProductService prodService = new ProductService();
-		Set<ProductDetailDTO> productList;
-		productList = prodService.getAllProducts();
+		Set<ProductDetailDTO> productList = prodService.getAllProducts();
 		
 //		get prices
 		ProductPriceService priceService = new ProductPriceService();
@@ -72,8 +70,8 @@ public class GetProductsServlet extends HttpServlet {
 //
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		RequestDispatcher rd = request.getRequestDispatcher("get_all_products.jsp");
-		rd.forward(request, response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

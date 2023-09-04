@@ -64,32 +64,26 @@ button:hover {
 			<th>Type</th>
 			<th>Quantity</th>
 			<th>Price</th>
-			<th>View</th>
-			<th>Update</th>
+			<th>View Details</th>
 			<th>Delete</th>
 		</tr>
 		
 		<%
-		Set<ProductDetailDTO> productList = (Set<ProductDetailDTO>)request.getAttribute("products");
-		%>
-		
-		<%
-		for(ProductDetailDTO product : productList){
-			List<ProductPrice> prices = product.getPrices();
+		Set<ProductDetailDTO> productList = (Set<ProductDetailDTO>) request.getAttribute("products");
+		for (ProductDetailDTO product : productList) {
+			List<ProductPrice> priceList = product.getPrices();
+			ProductPrice price = priceList.get(0);
 		%>
 		<tr>
 			<td><%=product.getId() %></td>
 			<td><%=product.getName() %></td>
 			<td><%=product.getDescription() %></td>
 			<td><%=product.isVeg() %></td>
-			<td>NOS</td>
-			<td>1</td>
-			<td>200</td>
+			<td><%= price.getType() %></td>
+			<td><%= price.getQuantity() %></td>
+			<td><%= price.getPrice() %></td>
 			<td>
-				<button>View</button>
-			</td>
-			<td>
-				<a href = "user/edit?userid="><button>Update</button></a>
+				<a href = "product?productid=<%= product.getId()%>"><button>View Details</button></a>
 			</td>
 			<td>
 				<button>Delete</button>
