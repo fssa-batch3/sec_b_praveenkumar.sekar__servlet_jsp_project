@@ -53,7 +53,7 @@ button:hover {
 </style>
 <body>
 
-	<a href="user/new"><button>Add Product</button></a>
+	<a href="product/new"><button>Add Product</button></a>
 
 	<table style="width: 100%">
 		<tr>

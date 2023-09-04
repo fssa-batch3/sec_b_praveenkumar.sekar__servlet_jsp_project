@@ -43,8 +43,6 @@ public class UpdateProductServlet extends HttpServlet {
 	        response.sendRedirect(request.getContextPath() + "/product?productid=" + product.getId()); // Redirect to the product list page
 	    } catch (ServiceException | ValidationException e) {
 	        e.printStackTrace();
-	        // Handle exceptions appropriately (e.g., show an error message)
-	        // You can redirect or forward to an error page if needed.
 	    }
 	}
 

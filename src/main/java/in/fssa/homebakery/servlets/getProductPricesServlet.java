@@ -20,7 +20,7 @@ import in.fssa.homebakery.validator.PriceValidator;
 /**
  * Servlet implementation class getProductPricesServlet
  */
-@WebServlet("/product/*/prices")
+@WebServlet("/product/prices")
 public class getProductPricesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,17 +33,18 @@ public class getProductPricesServlet extends HttpServlet {
 		ProductPriceService productPriceService = new ProductPriceService();
 		List<ProductPrice> prices;
 		try {
-			prices = productPriceService.findByProductId(productid);
+			prices = productPriceService.findCurrentPrice(productid);
 
 			// Set prices as an attribute to be rendered in a JSP page
 			request.setAttribute("prices", prices);
+			request.setAttribute("productid", productid);
 			System.out.println(prices);
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
 		}
 
 		// Forward to a JSP page for displaying prices
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/price_page.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/current_price_page.jsp");
 		dispatcher.forward(request, response);
 	}
 

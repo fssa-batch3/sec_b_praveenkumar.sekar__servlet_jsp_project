@@ -98,7 +98,7 @@ ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
 
 <div class="product_details">
     <div class="details">
-        <img src="<%=product.getImageUrl()%>">
+        <img src="<%=product.getImageUrl()%>" width="300px" height="300px">
         <h2><%=product.getName()%></h2>
         <h3>Description</h3>
         <p><%=product.getDescription()%></p>
@@ -114,7 +114,6 @@ ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
                 <th>Type</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-                <th>Delete</th>
             </tr>
 
             <%
@@ -128,9 +127,6 @@ ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
                 <td><%=price.getType()%></td>
                 <td><%=price.getStartDate()%></td>
                 <td><%=price.getEndDate()%></td>
-                <td>
-                    <button>Delete</button>
-                </td>
             </tr>
             <%
             }
@@ -141,7 +137,7 @@ ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
 </div>
 <div class = "buttons">
     <a href = "product/edit?productid=<%= product.getId()%>"><button>Update Product Details</button></a>
-    <a><button>Update Price Details</button></a>
+    <a href = "product/prices?productid=<%= product.getId()%>"><button>Update Price Details</button></a>
 </div>
 </body>
 </html>

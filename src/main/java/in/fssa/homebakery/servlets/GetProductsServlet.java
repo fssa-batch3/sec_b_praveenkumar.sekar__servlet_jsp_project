@@ -21,7 +21,7 @@ import in.fssa.homebakery.service.ProductService;
 /**
  * Servlet implementation class GetProductsServlet
  */
-@WebServlet("/Products")
+@WebServlet("/products")
 public class GetProductsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class GetProductsServlet extends HttpServlet {
 		for(ProductDetailDTO product : productList) {
 			
 			try {
-				ProductPrice price = priceService.findPriceByIdAndQuantity(product.getId(), 1);
+				ProductPrice price = priceService.findPriceByIdAndQuantity(product.getId(), 1.0);
 				
 				List<ProductPrice> priceList = product.getPrices();
 				priceList.clear();
