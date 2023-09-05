@@ -24,7 +24,6 @@
 		<input type = "tel" name = "phoneNo" required/><br><br>
 		
 		<button type = "submit">SUBMIT</button>
-		
 	</form>
 </body>
 </html>

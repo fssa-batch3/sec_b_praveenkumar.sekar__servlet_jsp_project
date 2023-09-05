@@ -34,24 +34,6 @@ public class GetProductsServlet extends HttpServlet {
 //		get prices
 		ProductPriceService priceService = new ProductPriceService();
 		
-		for(ProductDetailDTO product : productList) {
-			
-			try {
-				ProductPrice price = priceService.findPriceByIdAndQuantity(product.getId(), 1.0);
-				
-				List<ProductPrice> priceList = product.getPrices();
-				priceList.clear();
-				
-				priceList.add(price);
-				
-			} catch (ServiceException e) {
-				e.printStackTrace();
-			} catch (ValidationException e) {
-				e.printStackTrace();
-			}
-			
-		}
-		
 		request.setAttribute("products", productList);
 //
 //		ResponseEntity res = new ResponseEntity();

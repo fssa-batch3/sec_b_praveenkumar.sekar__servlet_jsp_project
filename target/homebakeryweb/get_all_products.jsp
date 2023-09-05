@@ -53,7 +53,7 @@ button:hover {
 </style>
 <body>
 
-	<a href="user/new"><button>Add Product</button></a>
+	<a href="product/new"><button>Add Product</button></a>
 
 	<table style="width: 100%">
 		<tr>
@@ -86,7 +86,7 @@ button:hover {
 				<a href = "product?productid=<%= product.getId()%>"><button>View Details</button></a>
 			</td>
 			<td>
-				<button>Delete</button>
+				<a href = "product/delete?productid=<%= product.getId()%>"><button>Delete</button></a>
 			</td>
 		</tr>
 		<%

@@ -86,7 +86,7 @@ button:hover {
 				<a href = "product?productid=<%= product.getId()%>"><button>View Details</button></a>
 			</td>
 			<td>
-				<button>Delete</button>
+				<a href = "product/delete?productid=<%= product.getId()%>"><button>Delete</button></a>
 			</td>
 		</tr>
 		<%

@@ -4,140 +4,207 @@
 <%@page import="in.fssa.homebakery.dto.ProductDetailDTO"%>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+	margin: 0;
+	padding: 0;
+}
 
-        .product_details {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.product_details {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin: 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .product_details img {
-            max-width: 100%;
-            height: auto;
-        }
+.product_details img {
+	max-width: 100%;
+	height: auto;
+}
 
-        .details {
-            flex-grow: 1;
-        }
+.details {
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	flex-grow: 1;
+	padding: 20px 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+}
 
-        h2 {
-            font-size: 24px;
-            color: #333;
-            margin: 0;
-        }
+.details img {
+	width: 300px;
+	height: 300px;
+	margin-bottom: 20px;
+}
 
-        h3 {
-            font-size: 18px;
-            color: #555;
-            margin: 10px 0;
-        }
+.details p {
+	margin: 5px 0;
+	font-size: 16px;
+	font-weight: 600;
+}
 
-        p {
-            font-size: 16px;
-            color: #777;
-            line-height: 1.4;
-        }
+.prices {
+	flex-grow: 1;
+}
 
-        .prices {
-            flex-grow: 1;
-        }
-        
-        .prices h2 {
-        	margin: 10px;
-        }
+.prices h2 {
+	margin: 10px;
+}
 
-        .prices table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+.prices .table_head {
+	display: flex;
+	justify-content: space-between;
+}
 
-        .prices th,
-        .prices td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
+.prices .table_head button{
+	margin-bottom: 10px;
+	margin-right: 20px;
+}
 
-        .prices th {
-            background-color: #f0f0f0;
-        }
+.prices table {
+	width: 100%;
+	border-collapse: collapse;
+}
 
-        .prices button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
+.prices th, .prices td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: center;
+}
 
-        .prices button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+.prices th {
+	background-color: #f0f0f0;
+}
+
+.prices button {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.prices button:hover {
+	background-color: #0056b3;
+}
+</style>
 </head>
 <body>
 
-<%
-ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
-%>
+	<%
+	ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
+	%>
 
-<div class="product_details">
-    <div class="details">
-        <img src="<%=product.getImageUrl()%>" width="300px" height="300px">
-        <h2><%=product.getName()%></h2>
-        <h3>Description</h3>
-        <p><%=product.getDescription()%></p>
-    </div>
+	<div class="product_details">
+		<div class="details">
+			<img src="<%=product.getImageUrl()%>" width="300px" height="300px">
 
-    <div class="prices">
-    	<h2>Price History</h2>
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Type</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-            </tr>
+			<div>
+				<p>
+					PRODUCT NAME:
+					<%=product.getName()%></p>
+			</div>
+			<div>
+				<p>
+					DESCRIPTION:
+					<%=product.getDescription()%></p>
+			</div>
+			<%
+			if (product.getCategoryId() == 1) {
+			%>
+			<div>
+				<p>CATEGORY: Cake</p>
+			</div>
+			<%
+			}
+			%>
+			<%
+			if (product.getCategoryId() == 2) {
+			%>
+			<div>
+				<p>CATEGORY: Bread</p>
+			</div>
+			<%
+			}
+			%>
+			<%
+			if (product.getCategoryId() == 3) {
+			%>
+			<div>
+				<p>CATEGORY: Breakfast Pastry</p>
+			</div>
+			<%
+			}
+			%>
+			<%
+			if (product.isVeg() == true) {
+			%>
+			<div>
+				<p>Veg: Yes</p>
+			</div>
+			<%
+			}
+			%>
+			<%
+			if (product.isVeg() == false) {
+			%>
+			<div>
+				<p>Veg: No</p>
+			</div>
+			<%
+			}
+			%>
+		</div>
 
-            <%
-            List<ProductPrice> priceList = product.getPrices();
-            for (ProductPrice price : priceList) {
-            %>
-            <tr>
-                <td><%=price.getId()%></td>
-                <td><%=price.getQuantity()%></td>
-                <td><%=price.getPrice()%></td>
-                <td><%=price.getType()%></td>
-                <td><%=price.getStartDate()%></td>
-                <td><%=price.getEndDate()%></td>
-            </tr>
-            <%
-            }
-            %>
-        </table>
-    </div>
-    
-</div>
-<div class = "buttons">
-    <a href = "product/edit?productid=<%= product.getId()%>"><button>Update Product Details</button></a>
-    <a href = "product/prices?productid=<%= product.getId()%>"><button>Update Price Details</button></a>
-</div>
+		<div class="prices">
+			<div class="table_head"> 
+				<h2>Price History</h2>
+				<button>Add Price</button>
+			</div>
+			<table>
+				<tr>
+					<th>Id</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Type</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+				</tr>
+
+				<%
+				List<ProductPrice> priceList = product.getPrices();
+				for (ProductPrice price : priceList) {
+				%>
+				<tr>
+					<td><%=price.getId()%></td>
+					<td><%=price.getQuantity()%></td>
+					<td><%=price.getPrice()%></td>
+					<td><%=price.getType()%></td>
+					<td><%=price.getStartDate()%></td>
+					<td><%=price.getEndDate()%></td>
+				</tr>
+				<%
+				}
+				%>
+			</table>
+		</div>
+
+	</div>
+	<div class="buttons">
+		<a href="product/edit?productid=<%=product.getId()%>"><button>Update
+				Product Details</button></a> <a
+			href="product/prices?productid=<%=product.getId()%>"><button>Update
+				Price Details</button></a>
+	</div>
 </body>
 </html>
