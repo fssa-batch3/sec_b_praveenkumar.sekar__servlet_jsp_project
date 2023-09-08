@@ -20,28 +20,28 @@ import in.fssa.homebakery.service.ProductService;
 @WebServlet("/product")
 public class ViewProductDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			String productId = request.getParameter("productid");
-			int productid = Integer.parseInt(productId);
+		String productId = request.getParameter("productid");
+		int productid = Integer.parseInt(productId);
 
-			// Retrieve prices for the product based on productId
-			ProductService productService = new ProductService();
-			ProductDetailDTO product;
-			
-			try {
-				product = productService.getByProductId(productid);
+		// Retrieve prices for the product based on productId
+		ProductService productService = new ProductService();
+		ProductDetailDTO product;
+		
+		try {
+			product = productService.getByProductId(productid);
 
-				// Set prices as an attribute to be rendered in a JSP page
-				request.setAttribute("product", product);
-			} catch (ServiceException | ValidationException e) {
-				e.printStackTrace();
-			}
+			// Set prices as an attribute to be rendered in a JSP page
+			request.setAttribute("product", product);
+		} catch (ServiceException | ValidationException e) {
+			e.printStackTrace();
+		}
 
-			// Forward to a JSP page for displaying prices
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/product_detail_page.jsp");
-			dispatcher.forward(request, response);
-	}
+		// Forward to a JSP page for displaying prices
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/product_detail_page.jsp");
+		dispatcher.forward(request, response);
+}
 
 }

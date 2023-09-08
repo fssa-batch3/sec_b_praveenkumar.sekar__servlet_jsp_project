@@ -17,7 +17,7 @@ import in.fssa.homebakery.service.ProductService;
 /**
  * Servlet implementation class EditProductServlet
  */
-@WebServlet("/product/edit")
+@WebServlet("/admin/product/edit")
 public class EditProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

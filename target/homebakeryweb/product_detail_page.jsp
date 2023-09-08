@@ -1,210 +1,232 @@
-<!DOCTYPE html>
-<%@page import="in.fssa.homebakery.model.ProductPrice"%>
-<%@page import="java.util.List"%>
 <%@page import="in.fssa.homebakery.dto.ProductDetailDTO"%>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Details</title>
+<meta charset="ISO-8859-1">
+<title>Home Bakery</title>
 <style>
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f5f5f5;
-	margin: 0;
-	padding: 0;
+header {
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08)
+		0px 0px 0px 1px;
+	background-color: white;
 }
 
-.product_details {
+/*---------- main---------- */
+.whole {
+	width: 1200px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	padding: 20px;
-	margin: 20px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	/* grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); */
+	gap: 10rem;
+	margin: auto;
+	margin-top: 10%;
+	padding-bottom: 5%;
+	border-bottom: 1px black solid;
 }
 
-.product_details img {
-	max-width: 100%;
-	height: auto;
+.main {
+	margin: 130px 70px 70px 70px;
+	width: 50%;
 }
 
-.details {
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	flex-grow: 1;
-	padding: 20px 0;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	margin: 20px;
+.main img {
+	border-radius: 5px;
+	border: 2px black solid;
+	background-color: white;
+	width: 500px;
+	height: 500px;
 }
 
-.details img {
-	width: 300px;
-	height: 300px;
-	margin-bottom: 20px;
-}
-
-.details p {
-	margin: 5px 0;
-	font-size: 16px;
-	font-weight: 600;
-}
-
-.prices {
-	flex-grow: 1;
-}
-
-.prices h2 {
-	margin: 10px;
-}
-
-.prices .table_head {
-	display: flex;
-	justify-content: space-between;
-}
-
-.prices .table_head button{
-	margin-bottom: 10px;
-	margin-right: 20px;
-}
-
-.prices table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-.prices th, .prices td {
-	border: 1px solid #ccc;
+.thumbnail img {
 	padding: 10px;
-	text-align: center;
+	border-radius: 20px;
+	margin-top: 20px;
 }
 
-.prices th {
-	background-color: #f0f0f0;
+textarea {
+	resize: none;
+	border-radius: 5px;
+	width: 269px;
+	padding: 4px;
 }
 
-.prices button {
-	background-color: #007bff;
-	color: #fff;
+/* --------side-------- */
+.side {
+	width: 40%;
+	margin-top: 60px;
+	/* margin-left: auto; */
+	/* margin-right: auto; */
+}
+
+.side_para h1 {
+	color: black;
+	font-size: 40px;
+	margin-top: 10px;
+}
+
+.side_para .para {
+	line-height: 25px;
+	width: 450px;
+	font-size: 20px;
+	text-align: justify;
+	text-justify: inter-word;
+	color: black;
+	margin-top: 10px;
+}
+
+.price1 {
+	color: black;
+	margin-top: 20px;
+}
+
+.price1 p {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.price1 p span {
+	position: relative;
+	bottom: 5px;
+	font-size: 16px;
+	margin-left: 10px;
+	padding: 3px 10px;
+	margin-bottom: 10px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+}
+
+.price2 {
+	margin-top: 10px;
+	color: black;
+}
+
+.buttons {
+	margin-top: 20px;
+	display: flex;
+	color: black;
+}
+
+.amount button {
+	font-weight: bold;
+	letter-spacing: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+	margin-right: 20px;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: white;
+}
+
+.add button {
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-right: 20px;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: black;
+	color: white;
+	transition: 0.2s;
+}
+
+.add button:hover {
+	color: black;
+	background-color: white;
+}
+
+.spec {
+	margin: 20px 0;
+}
+
+.spec-buttons {
+	display: inline-flex;
+	margin: 20px 0;
+}
+
+.spec-buttons button {
+	padding: 20px 30px;
+	outline: none;
 	border: none;
-	padding: 5px 10px;
-	cursor: pointer;
+	background-color: black;
+	color: white;
+	transition: 0.3s;
+	border-right: 1px white solid;
 }
 
-.prices button:hover {
-	background-color: #0056b3;
+.spec-buttons button:hover {
+	color: black;
+	background-color: white;
+}
+
+.spec-buttons button:focus {
+	color: black;
+	background-color: white;
+}
+
+.spec-buttons button:nth-of-type(1) {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border: 2px black solid;
+	border-right: 1px white solid;
+}
+
+.spec-buttons button:nth-of-type(2) {
+	border: 2px black solid;
+	border-right: 1px white solid;
+	border-left: none;
+}
+
+.spec-buttons button:nth-of-type(3) {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 2px black solid;
+	border-left: none;
 }
 </style>
 </head>
 <body>
-
+	<jsp:include page="header.jsp"></jsp:include>
 	<%
 	ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
 	%>
-
-	<div class="product_details">
-		<div class="details">
-			<img src="<%=product.getImageUrl()%>" width="300px" height="300px">
-
-			<div>
-				<p>
-					PRODUCT NAME:
-					<%=product.getName()%></p>
+	<div class="whole">
+		<section class="main">
+			<div class="main_img">
+				<img src="<%= product.getImageUrl() %>>" alt="">
 			</div>
-			<div>
-				<p>
-					DESCRIPTION:
-					<%=product.getDescription()%></p>
+		</section>
+		<section class="side">
+			<div class="side_para">
+				<h1><%= product.getName() %></h1>
+				<p><%= product.getDescription() %></p>
+				<div class="price1">
+					<p></p>
+				</div>
+				<div class="spec">
+					<h2>WEIGHT</h2>
+					<div class="spec-buttons">
+						<button class="weights" onclick="half_kg()" id="0">1/2Kg</button>
+						<button class="weights" onclick="one_kg()" id="1">1Kg</button>
+						<button class="weights" onclick="two_kg()" id="2">2Kg</button>
+					</div>
+				</div>
+				<div class="tarea">
+					<textarea placeholder="Enter special message here" id="tarea"
+						rows="4" cols="30"></textarea>
+				</div>
 			</div>
-			<%
-			if (product.getCategoryId() == 1) {
-			%>
-			<div>
-				<p>CATEGORY: Cake</p>
+			<div class="buttons">
+				<div class="add" data-id="">
+					<button id="add">Add to cart</button>
+				</div>
 			</div>
-			<%
-			}
-			%>
-			<%
-			if (product.getCategoryId() == 2) {
-			%>
-			<div>
-				<p>CATEGORY: Bread</p>
-			</div>
-			<%
-			}
-			%>
-			<%
-			if (product.getCategoryId() == 3) {
-			%>
-			<div>
-				<p>CATEGORY: Breakfast Pastry</p>
-			</div>
-			<%
-			}
-			%>
-			<%
-			if (product.isVeg() == true) {
-			%>
-			<div>
-				<p>Veg: Yes</p>
-			</div>
-			<%
-			}
-			%>
-			<%
-			if (product.isVeg() == false) {
-			%>
-			<div>
-				<p>Veg: No</p>
-			</div>
-			<%
-			}
-			%>
-		</div>
-
-		<div class="prices">
-			<div class="table_head"> 
-				<h2>Price History</h2>
-				<button>Add Price</button>
-			</div>
-			<table>
-				<tr>
-					<th>Id</th>
-					<th>Quantity</th>
-					<th>Price</th>
-					<th>Type</th>
-					<th>Start Date</th>
-					<th>End Date</th>
-				</tr>
-
-				<%
-				List<ProductPrice> priceList = product.getPrices();
-				for (ProductPrice price : priceList) {
-				%>
-				<tr>
-					<td><%=price.getId()%></td>
-					<td><%=price.getQuantity()%></td>
-					<td><%=price.getPrice()%></td>
-					<td><%=price.getType()%></td>
-					<td><%=price.getStartDate()%></td>
-					<td><%=price.getEndDate()%></td>
-				</tr>
-				<%
-				}
-				%>
-			</table>
-		</div>
-
-	</div>
-	<div class="buttons">
-		<a href="product/edit?productid=<%=product.getId()%>"><button>Update
-				Product Details</button></a> <a
-			href="product/prices?productid=<%=product.getId()%>"><button>Update
-				Price Details</button></a>
+		</section>
 	</div>
 </body>
 </html>

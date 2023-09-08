@@ -19,6 +19,11 @@ body {
 	min-height: 100vh;
 }
 
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
+
 .container {
 	max-width: 600px;
 	padding: 20px;
@@ -47,6 +52,10 @@ input[type="text"], input[type="url"], textarea, select {
 	font-size: 16px;
 }
 
+input[type=checkbox] {
+          accent-color: black;
+        }
+
 select {
 	height: 36px;
 }
@@ -58,7 +67,7 @@ label[for="vegetarian"] {
 }
 
 button[type="submit"] {
-	background-color: #007bff;
+	background-color: #000;
 	color: #fff;
 	border: none;
 	padding: 10px 20px;
@@ -68,10 +77,13 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-	background-color: #0056b3;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid black;
 }
 </style>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 		<h2>Update Product</h2>
 

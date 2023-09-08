@@ -20,7 +20,7 @@ import in.fssa.homebakery.validator.PriceValidator;
 /**
  * Servlet implementation class getProductPricesServlet
  */
-@WebServlet("/product/prices")
+@WebServlet("/admin/product/prices")
 public class getProductPricesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

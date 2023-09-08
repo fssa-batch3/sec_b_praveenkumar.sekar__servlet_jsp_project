@@ -14,7 +14,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class DeleteProductServlet
  */
-@WebServlet("/product/delete")
+@WebServlet("/admin/product/delete")
 public class DeleteProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -34,7 +34,7 @@ public class DeleteProductServlet extends HttpServlet {
 			int id = Integer.parseInt(paramId);
 			
 			productService.deleteProduct(id);
-			response.sendRedirect(request.getContextPath() + "/products");
+			response.sendRedirect(request.getContextPath() + "/admin/products");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

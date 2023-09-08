@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import in.fssa.homebakery.exception.ServiceException;
 import in.fssa.homebakery.exception.ValidationException;
@@ -18,7 +19,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class CreateUser
  */
-@WebServlet("/user/create")
+@WebServlet("/register/create")
 public class CreateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -38,7 +39,13 @@ public class CreateUserServlet extends HttpServlet {
 		
 		try {
 			userService.createUser(user);
-			response.sendRedirect(request.getContextPath() + "/users");
+			HttpSession login = request.getSession();
+			login.setAttribute("logged email", user.getEmail());
+			login.setAttribute("logged user", user);
+			login.setAttribute("logged user id", user.getId());
+			
+			response.getWriter().println("User logged in successfully");
+			response.sendRedirect(request.getContextPath() + "/homepage");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
 		}

@@ -80,7 +80,7 @@ button:hover {
 			<td><%=price.getEndDate()%></td>
 			<td><a href="price/edit?priceid=<%=price.getId()%>&productid=<%=productid %>"><button>Update</button></a>
 			</td>
-			<td><a href="price/delete?priceid=<%=price.getId()%>"><button>Delete</button></a>
+			<td><a href="price/delete?priceid=<%=price.getId()%>&productid=<%=productid %>""><button>Delete</button></a>
 			</td>
 		</tr>
 		<%

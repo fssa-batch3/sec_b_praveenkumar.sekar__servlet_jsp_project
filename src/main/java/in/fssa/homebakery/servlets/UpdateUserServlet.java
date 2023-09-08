@@ -17,7 +17,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class UpdateUserServlet
  */
-@WebServlet("/user/update")
+@WebServlet("/profile/update")
 public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +41,7 @@ public class UpdateUserServlet extends HttpServlet {
 
 		try {
 			userService.updateUser(userId, user);
-			response.sendRedirect(request.getContextPath() + "/users");
+			response.sendRedirect(request.getContextPath() + "/profile");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
 		}

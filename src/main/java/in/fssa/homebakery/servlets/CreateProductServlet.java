@@ -24,7 +24,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class CreateProductServlet
  */
-@WebServlet("/product/create")
+@WebServlet("/admin/product/create")
 public class CreateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -62,6 +62,7 @@ public class CreateProductServlet extends HttpServlet {
 		productDetailDTO.setDescription(description);
 		productDetailDTO.setVeg(isVegetarian);
 		productDetailDTO.setImageUrl(imageUrl);
+		productDetailDTO.setActive(true);
 		
 		List<ProductPrice> priceList = new ArrayList<ProductPrice>();
 		
@@ -79,7 +80,7 @@ public class CreateProductServlet extends HttpServlet {
 		
 		try {
 			productService.createProduct(productDetailDTO);
-			response.sendRedirect(request.getContextPath() + "/products");
+			response.sendRedirect(request.getContextPath() + "/admin/products");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
 		}

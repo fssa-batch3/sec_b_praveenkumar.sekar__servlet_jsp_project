@@ -1,7 +1,6 @@
 package in.fssa.homebakery.servlets;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -12,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.fssa.homebakery.dto.ProductDetailDTO;
-import in.fssa.homebakery.exception.ServiceException;
-import in.fssa.homebakery.exception.ValidationException;
-import in.fssa.homebakery.model.ProductPrice;
 import in.fssa.homebakery.service.ProductPriceService;
 import in.fssa.homebakery.service.ProductService;
 
@@ -35,22 +31,6 @@ public class GetProductsServlet extends HttpServlet {
 		ProductPriceService priceService = new ProductPriceService();
 		
 		request.setAttribute("products", productList);
-//
-//		ResponseEntity res = new ResponseEntity();
-//		res.setStatusCode(200);
-//		res.setData(productList);
-//		res.setMessage("product details fetched successfully");
-//
-//		Gson gson = new Gson();
-//		String responseJson = gson.toJson(res);
-//
-//		System.out.println(responseJson);
-//
-//		response.setContentType("application/json");
-//		response.setCharacterEncoding("UTF-8");
-//		response.getWriter().write(responseJson);
-//
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");
 		dispatcher.forward(request, response);

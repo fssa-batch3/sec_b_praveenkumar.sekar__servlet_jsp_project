@@ -17,7 +17,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class UpdateProductServlet
  */
-@WebServlet("/product/update")
+@WebServlet("/admin/product/update")
 public class UpdateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -28,19 +28,20 @@ public class UpdateProductServlet extends HttpServlet {
 		
 		Product product = new Product();
 
+		boolean isVegetarian = request.getParameter("vegetarian") != null;
 		product.setId(productId);
 	    product.setProductName(request.getParameter("productName"));
 	    product.setDescription(request.getParameter("description"));
 	    product.setCategoryId(Integer.parseInt(request.getParameter("category")));
+	    product.setVeg(isVegetarian);
 	    product.setImageUrl(request.getParameter("imageUrl"));
-//	    product.setVegetarian(Boolean.parseBoolean(request.getParameter("vegetarian")));
 	    product.setActive(true);
 
 	    ProductService productService = new ProductService();
 
 	    try {
 	        productService.updateProduct(productId, product); // Update the product
-	        response.sendRedirect(request.getContextPath() + "/product?productid=" + product.getId()); // Redirect to the product list page
+	        response.sendRedirect(request.getContextPath() + "/admin/product?productid=" + product.getId()); // Redirect to the product list page
 	    } catch (ServiceException | ValidationException e) {
 	        e.printStackTrace();
 	    }

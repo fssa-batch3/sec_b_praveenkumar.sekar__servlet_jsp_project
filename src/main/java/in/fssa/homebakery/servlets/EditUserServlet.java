@@ -17,7 +17,7 @@ import in.fssa.homebakery.service.UserService;
 /**
  * Servlet implementation class EditUserServlet
  */
-@WebServlet("/user/edit")
+@WebServlet("/profile/edit")
 public class EditUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	

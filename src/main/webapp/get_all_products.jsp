@@ -3,96 +3,128 @@
 <%@page import="in.fssa.homebakery.dto.ProductDetailDTO"%>
 <%@page import="java.util.Set"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-</head>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Bakery</title>
 <style>
-table {
-	font-family: arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
+
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
 }
 
-td, th {
-	border: 1px solid #DDDDDD;
-	text-align: left;
-	padding: 8px;
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
 }
 
-tr:nth-child(even) {
-	background-color: #DDDDDD;
+.product1 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+	gap: 10rem;
+	row-gap: 2rem;
+	width: 80%;
+	place-items: center;
+	margin: auto;
+	margin-top: 5%;
+	text-decoration: none;
+	margin-bottom: 5%;
 }
 
-button {
-	margin: 10px;
-	cursor: pointer;
-	outline: 0;
-	color: #fff;
-	background-color: #0d6efd;
-	border-color: #0d6efd;
-	display: inline-block;
-	font-weight: 400;
-	line-height: 1.5;
+.product {
+	margin-top: 50px;
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+	padding: 30px 20px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	transition: 0.2s;
+}
+
+.v_label {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	bottom: 28px;
+	left: 50px;
+}
+
+.img_size {
+	height: 250px;
+	width: 300px;
+}
+
+.product a {
+	color: white;
+	text-decoration: none;
+}
+
+.product:hover {
+	background-color: white;
+	color: black;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px 5px, rgba(0, 0, 0, 0.3)
+		0px 8px 16px 8px;
+}
+
+.product p {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.prod_button {
+	position: relative;
+	display: flex;
+	margin: auto;
+	padding: 7px 15px;
 	text-align: center;
-	border: 1px solid transparent;
-	padding: 6px 12px;
-	font-size: 16px;
-	border-radius: .25rem;
-	transition: color .15s ease-in-out, background-color .15s ease-in-out,
-		border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	font-size: 15px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #000000;
+	background: transparent;
+	cursor: pointer;
+	transition: ease-out 0.5s;
+	border: 2px solid #000000;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 0 #000000;
 }
 
-button:hover {
-	color: #fff;
-	background-color: #0b5ed7;
-	border-color: #0a58ca;
+.prod_button:hover {
+	color: white;
+	box-shadow: inset 0 -100px 0 0 #000000;
 }
 
+.prod_button:active {
+	transform: scale(0.9);
 }
 </style>
+</head>
 <body>
-
-	<a href="product/new"><button>Add Product</button></a>
-
-	<table style="width: 100%">
-		<tr>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Description</th>
-			<th>Is Veg</th>
-			<th>Type</th>
-			<th>Quantity</th>
-			<th>Price</th>
-			<th>View Details</th>
-			<th>Delete</th>
-		</tr>
-		
+	<jsp:include page="header.jsp"></jsp:include>
+	<div class="product1">
 		<%
 		Set<ProductDetailDTO> productList = (Set<ProductDetailDTO>) request.getAttribute("products");
 		for (ProductDetailDTO product : productList) {
 			List<ProductPrice> priceList = product.getPrices();
 			ProductPrice price = priceList.get(0);
 		%>
-		<tr>
-			<td><%=product.getId() %></td>
-			<td><%=product.getName() %></td>
-			<td><%=product.getDescription() %></td>
-			<td><%=product.isVeg() %></td>
-			<td><%= price.getType() %></td>
-			<td><%= price.getQuantity() %></td>
-			<td><%= price.getPrice() %></td>
-			<td>
-				<a href = "product?productid=<%= product.getId()%>"><button>View Details</button></a>
-			</td>
-			<td>
-				<a href = "product/delete?productid=<%= product.getId()%>"><button>Delete</button></a>
-			</td>
-		</tr>
+		<div class="product">
+			<h2><%= product.getName() %></h2>
+			<p>Rs. <%=price.getPrice()%> </p>
+
+			<img src="<%= product.getImageUrl() %>" alt="" class="img_size"> <a
+				href="product?productid=<%= product.getId()%>">
+				<button class="prod_button">Learn more</button>
+			</a>
+		</div>
 		<%
 		}
 		%>
-	</table>
-
+	</div>
 </body>
 </html>
