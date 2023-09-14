@@ -96,8 +96,8 @@ button:hover {
 				for="phoneNumber">Phone Number</label> <input type="tel"
 				id="phoneNumber" name="phoneNumber" value="<%=user.getPhoneNo()%>"
 				required> <label for="email">Email</label> <input
-				type="email" id="email" name="email" value="<%=user.getEmail()%>"
-				required> <label for="password">Password</label> <input
+				type="email" id="email" name="email" value="<%=user.getEmail()%>" readonly> 
+				<label for="password">Password</label> <input
 				type="password" id="password" name="password"
 				value="<%=user.getPassword()%>" required>
 

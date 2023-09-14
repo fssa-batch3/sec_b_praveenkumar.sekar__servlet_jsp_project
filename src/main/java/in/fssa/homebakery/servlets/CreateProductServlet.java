@@ -47,10 +47,6 @@ public class CreateProductServlet extends HttpServlet {
 		int category = Integer.parseInt(request.getParameter("category"));
 		boolean isVegetarian = request.getParameter("isVeg") != null; // Checkbox
 		String imageUrl = request.getParameter("imageUrl");
-		double quantity = Double.parseDouble(request.getParameter("quantity"));
-		String typeString = request.getParameter("type");
-		QuantityType type = typeMapping.get(typeString);
-		double price = Double.parseDouble(request.getParameter("price"));
 		
 		
 		
@@ -66,16 +62,60 @@ public class CreateProductServlet extends HttpServlet {
 		
 		List<ProductPrice> priceList = new ArrayList<ProductPrice>();
 		
+		if(category == 2 || category == 3) {
+		
 		ProductPrice productPrice = new ProductPrice();
 		
+		double price = Double.parseDouble(request.getParameter("price"));
+		
 		productPrice.setPrice(price);
-		productPrice.setQuantity(quantity);
-		productPrice.setType(type);
+		productPrice.setQuantity(1);
+		productPrice.setType(typeMapping.get("NOS"));
 		productPrice.setStartDate(currentTimestamp);
 		
 		priceList.add(productPrice);
 		
 		productDetailDTO.setPrices(priceList);
+		
+		}
+		
+		else {
+			ProductPrice productPrice1 = new ProductPrice();
+			
+			double price1 = Double.parseDouble(request.getParameter("price1/2"));
+			
+			productPrice1.setPrice(price1);
+			productPrice1.setQuantity(0.5);
+			productPrice1.setType(typeMapping.get("KG"));
+			productPrice1.setStartDate(currentTimestamp);
+			
+			priceList.add(productPrice1);
+			
+			ProductPrice productPrice2 = new ProductPrice();
+
+			double price2 = Double.parseDouble(request.getParameter("price1"));
+			
+			productPrice2.setPrice(price2);
+			productPrice2.setQuantity(1);
+			productPrice2.setType(typeMapping.get("KG"));
+			productPrice2.setStartDate(currentTimestamp);
+			
+			priceList.add(productPrice2);
+			
+			ProductPrice productPrice3 = new ProductPrice();
+			
+			double price3 = Double.parseDouble(request.getParameter("price2"));
+			
+			productPrice3.setPrice(price3);
+			productPrice3.setQuantity(2);
+			productPrice3.setType(typeMapping.get("KG"));
+			productPrice3.setStartDate(currentTimestamp);
+			
+			priceList.add(productPrice3);
+			
+			productDetailDTO.setPrices(priceList);
+			
+		}
 		
 		
 		try {

@@ -27,9 +27,6 @@ public class GetProductsServlet extends HttpServlet {
 		ProductService prodService = new ProductService();
 		Set<ProductDetailDTO> productList = prodService.getAllProducts();
 		
-//		get prices
-		ProductPriceService priceService = new ProductPriceService();
-		
 		request.setAttribute("products", productList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");

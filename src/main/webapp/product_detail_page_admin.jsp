@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Details</title>
+<title>Product Detail Admin</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -16,11 +16,12 @@ body {
 }
 
 header {
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-    background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08)
+		0px 0px 0px 1px;
+	background-color: white;
 }
 
-.whole{
+.whole {
 	background-color: #fff;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	border: 1px solid #ccc;
@@ -143,7 +144,7 @@ header {
 	ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
 	%>
 
-	<div class  = "whole">
+	<div class="whole">
 		<div class="product_details">
 			<div class="details">
 				<img src="<%=product.getImageUrl()%>" width="300px" height="300px">
@@ -208,7 +209,9 @@ header {
 			<div class="prices">
 				<div class="table_head">
 					<h2>Price History</h2>
-					<a href = "<%=request.getContextPath()%>/admin/product/price/new?productid=<%=product.getId()%>"><button>Add Price</button></a>
+					<a
+						href="<%=request.getContextPath()%>/admin/product/price/new?productid=<%=product.getId()%>"><button>Add
+							Price</button></a>
 				</div>
 				<table>
 					<tr>
@@ -230,7 +233,17 @@ header {
 						<td><%=price.getPrice()%></td>
 						<td><%=price.getType()%></td>
 						<td><%=price.getStartDate()%></td>
+						<%
+						if (price.getEndDate() != null) {
+						%>
 						<td><%=price.getEndDate()%></td>
+						<%
+						} else {
+						%>
+						<td>-</td>
+						<%
+						}
+						%>
 					</tr>
 					<%
 					}

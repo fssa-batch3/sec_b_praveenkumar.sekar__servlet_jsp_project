@@ -34,8 +34,6 @@ public class GetUserByIdServlet extends HttpServlet {
 			
 			User user = userService.findByUserId(id);
 			
-			out.println(user);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

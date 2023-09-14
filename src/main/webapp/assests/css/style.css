@@ -1,0 +1,476 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+a {
+    font-family: 'Telex', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+header{
+    height: 62.250px;
+}
+
+.heading-2 h2 {
+    font-size: 35px;
+    margin-left: 5%;
+}
+
+.categories-head h2{
+    font-size: 35px;
+    margin-left: 5%;
+}
+
+.meet-para h2 {
+    font-size: 35px;
+}
+
+.about-para h2 {
+    font-size: 35px;
+}
+
+.bg-img {
+    background-image: url(../Images/bhuwan-bansal-NBTqo3Ig73w-unsplash-overlay\ \(2\).jpg);
+    filter: grayscale(15%);
+    background-size: cover;
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.heading {
+    font-size: 70px;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+}
+
+.para {
+    
+    font-style: italic;
+    font-size: 23px;
+    text-align: center;
+    margin-top: 4%;
+    font-weight: 400;
+    color: white;
+}
+
+.content {
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px 20px 20px;
+    background-color: rgba(0, 0, 0, 0.148);
+}
+
+.content button{
+    position: relative;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    padding: 14px 30px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #000000;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 0 #000000;
+}
+
+.content button:hover{
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #000000;
+}
+
+.content button:active {
+    transform: scale(0.9);
+}
+
+
+
+.content a {
+    text-decoration: none;
+    font-style: bold;
+    font-weight: 600;
+}
+
+/* 2nd-fold */
+.fold-2{
+    height: 90vh;
+}
+
+.heading-2 {
+    margin-top: 20px;
+}
+
+.heading-2 h1 {     
+    text-align: left; 
+    font-size: 50px;  
+    margin-left: 5%;
+    padding-top: 2%;
+}
+
+.heading-2 p {    
+    text-align: left;
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+/* products */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 3rem;
+    width: 80%;
+    place-items: center;
+    margin: auto;
+}
+
+.products a {
+    text-decoration: none;
+}
+
+.product {
+    margin-top: 50px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: 0.2s;
+}
+
+.img_size {
+    height: 250px;
+    width: 300px;
+}
+
+.product:hover {
+    background-color: white;
+    color: black; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px 5px, rgba(0, 0, 0, 0.3) 0px 8px 16px 8px;
+}
+
+.product p {
+    margin-top: 10px;     
+    font-size: 20px;
+}
+
+.prod_button {
+    position: relative;
+    display: flex;
+    margin: auto;
+    padding: 7px 15px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #000000;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 0 #000000;
+}
+
+.prod_button:hover {
+    color: white;
+    box-shadow: inset 0 -100px 0 0 #000000;
+}
+
+.prod_button:active {
+    transform: scale(0.9);
+}
+
+/* about */
+
+.about {
+    background-image: url(../Images/top-view-basket-full-breads-as-baguette-bagel-rye-with-sunflower-seeds-black-surface-overlay\ \(2\).jpg);
+    width:100%;
+    height:90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.about-para {
+    width:50%;
+    margin-left:50%;
+    position: relative;
+    top: 15%;
+}
+
+.about-para h1 {
+    
+    font-size: 60px;
+}
+
+.about-para p {
+    margin-top: 40px;
+    width: 90%;
+    font-size: 22px;
+    line-height: 40px;
+    font-style:italic;
+    text-align: justify;
+    text-justify:inter-word;
+}
+
+/* categories */
+
+.categories-head {
+    margin-top: 20px;
+}
+
+.categories-head h1 {     
+    text-align: left; 
+    font-size: 50px;  
+    margin-left: 5%;
+    padding-top: 2%;
+}
+
+.categories-head p {     
+    text-align: left;
+    margin-left: 5%;
+    font-size: 20px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+
+.categories a {
+    text-decoration: none;
+}
+
+.categories div {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.148);
+    margin-top: 50px;
+}
+
+
+.categories p {     
+    font-size: 50px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    color:white;
+    position:relative;
+    }
+
+.categories div:nth-of-type(1){
+    background-image: url(../Images/Categories/assortment-pieces-cake\ \(1\).jpg);
+    background-size: contain;
+    border-radius: 500px;
+}
+
+.categories div:nth-of-type(2){
+    background-image: url(../Images/Categories/close-up-view-black-bread-slices-nude-color-towel-spikes-flower-cutting-boards-mixed-colors-background\ \(1\).jpg);
+    background-size: contain;
+    border-radius: 500px;
+}
+
+.categories div:nth-of-type(3){
+    background-image: url(../Images/Categories/croissant-flat-lay-food-photography.jpg);
+    background-size: contain;
+    border-radius: 500px;
+}
+
+.categories div:nth-of-type(1) p{
+    top: 40%;
+}
+
+.categories div:nth-of-type(2) p{
+    top: 40%;
+}
+
+.categories div:nth-of-type(3) p{
+    top: 40%;
+}
+
+/* Meet */
+
+.meet {
+    display: flex;
+    margin-top: 7%;
+    padding-top: 7%;
+    margin-bottom: 7%;
+    border-top: 1px black solid;
+}
+
+.meet-para {
+    width:50%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.meet-para h1 {
+    font-size: 60px;
+}
+
+.meet-para p {
+    margin-top: 40px;
+    width: 90%;
+    font-size: 22px;
+    line-height: 40px;
+    font-style:italic;
+    text-align: justify;
+    text-justify:inter-word;
+}
+
+/* responsive */
+
+
+@media only screen and (max-width:700px) {
+
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .content {
+        margin-top: 40%; 
+    }
+
+    .bg-img {
+        max-height: 70vh;
+        background-image: url(../Images/bhuwan-bansal-NBTqo3Ig73w-unsplash-overlay\ \(2\).jpg);
+        filter: grayscale(15%);
+        background-size:cover;
+        background-position: center;
+    }
+
+    .heading {
+        font-size: 45px;
+    }
+
+    .para {
+        font-size: 16px; 
+    }
+
+    .heading-2 h1 {
+        font-size: 20px;
+    }
+
+    .heading-2 p {
+        font-size: 16px;
+    }
+
+    .products {
+        flex-wrap: wrap;
+    }
+
+    .product {
+        width: 50%;
+        height: 70%;
+        margin: 10% auto;
+
+    }
+
+    .product img {
+        width: 50%;
+        height: 50%;
+        margin-left: 23%;
+    }
+
+    .product p {
+        font-size: 16px;
+    }
+
+    .products h2 {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+    }
+
+    /* about */
+
+    .about{
+        margin-top: 70%;
+        height: 50vh;
+    }
+
+    .about-para{
+        width: 80%;
+        margin-left: 14%;
+        top: 5%;
+    }
+
+    .about-para h1 {
+        font-size: 20px;
+    }
+
+    .about-para p {
+        font-size: 16px;
+        line-height: normal;
+        width: none;
+        text-justify: auto;
+    }
+
+    /* meet */
+
+    .meet {
+        height: 50vh;
+    }
+
+    .meet-para{
+        max-height: 50vh;
+    }
+
+    .meet-para h1 {
+        font-size: 20px;
+    }
+
+    .meet-para p {
+        font-size: 12px;
+        line-height: normal;
+        margin-top: 20px;   
+    }
+
+    .categories {
+        position: static;
+    }
+}
+
+
+
+
+

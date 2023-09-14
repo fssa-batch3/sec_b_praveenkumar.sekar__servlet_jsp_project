@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add User</title>
+<title>Register</title>
 <style>
 	.form-container {
     display: flex;
@@ -139,7 +139,7 @@ form a {
                 <button type="submit">Register</button>
             </div>
             <br>
-            <a href="<%= request.getContextPath()%> + /login">
+            <a href="<%=request.getContextPath()%>/login">
                 <p>Already have an account? Sign in</p>
             </a>
         </form>

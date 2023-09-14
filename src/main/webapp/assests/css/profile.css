@@ -1,0 +1,220 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+}
+
+h4 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h3 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h5 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+th {
+    font-family: 'Catamran', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
+
+.full {
+    min-height: 75vh;
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 9%;
+    margin-bottom: 2%;
+}
+
+div.sidebar{
+    width: 20%;
+    height: 50%;
+    padding-right: 5%;
+    position: sticky;
+    top: 0;
+}
+
+.main_content{
+    width:80%;
+    border-left: 1px solid black;
+    padding-left: 5%;
+}
+
+.sidebar div{
+    color:black;
+    padding: 15px;
+    margin: 0.5%;
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+}
+
+.sidebar div:hover{
+    background-color: black;
+    color: white;
+}
+
+.sidebar h4{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 78%;
+    padding-bottom: 2%;
+}
+
+.head button {
+    margin-right: 1.5rem;
+    font-family: 'Catamran', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.profile_details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+}
+
+.profile_details div {
+    display: flex;
+    margin: 3% 0 3% 0;
+}
+
+.main_content div h4{
+    margin-right: 10%;
+    width: 20rem;
+}
+
+.main_content div p{
+    width: 20rem;
+}
+
+.default_address {
+    margin-top: 3%;
+    border: 1px black solid;
+    padding: 0 2% 2% 2%;
+    width: 75%;
+}
+
+.default_address div {
+    margin-top: 2%;
+    line-height: 30px;
+}
+
+.address_book {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr)); */
+    gap: 1rem;
+    row-gap: 0.5rem;
+}
+
+.address {
+    border: 1px black solid;
+    padding: 0 2% 2% 2%;
+    width: 70%;
+    margin: 5% 1% 5% 1%;
+    border-radius: 5px;
+}
+
+.address div {
+    margin-top: 2%;
+    line-height: 30px;
+}
+
+.address_head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address_head div {
+    display : flex;
+}
+
+.address_head div h2 {
+    margin-right: 0.5rem;
+}
+
+.address_head button {
+    margin-right: 1.5%;
+    font-family: 'Catamran', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.address_body {
+    border-bottom: 1px black solid;
+    padding-bottom: 1rem;
+}
+
+.address_buttons button {
+    margin-right: 1.5rem;
+    font-family: 'Catamran', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.address_buttons button:nth-of-type(1){
+    border-right: 1px solid black;
+    padding-right: 1.25rem;
+}
+
+
+
+
+/* responsive */
+
+@media only screen and (max-width:700px) {
+
+    .table-container{
+        padding-top: 30%;
+        height: 60vh;
+    }
+
+    caption {
+        font-size: 16px;
+    }
+
+    td {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .buttons {
+        margin-left: 28%;
+    }
+}

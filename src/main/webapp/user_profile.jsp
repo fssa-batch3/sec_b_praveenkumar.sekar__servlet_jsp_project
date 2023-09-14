@@ -89,30 +89,30 @@ p {
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<%
-	User loggedUser = (User) request.getSession().getAttribute("logged user");
+		User user = (User)request.getAttribute("user");
 	%>
 	<div class="profile_container">
 		<h2>PROFILE DETAILS</h2>
 		<div class="profile_details">
 			<div>
 				<h4>FIRST NAME</h4>
-				<p><%=loggedUser.getFirstName() %></p>
+				<p><%= user.getFirstName() %></p>
 			</div>
 			<div>
 				<h4>LAST NAME</h4>
-				<p><%=loggedUser.getLastName() %></p>
+				<p><%=user.getLastName() %></p>
 			</div>
 			<div>
 				<h4>EMAIL</h4>
-				<p><%=loggedUser.getEmail()%></p>
+				<p><%=user.getEmail()%></p>
 			</div>
 			<div>
 				<h4>PHONE</h4>
-				<p><%=loggedUser.getPhoneNo()%></p>
+				<p><%=user.getPhoneNo()%></p>
 			</div>
 		</div>
 		<div class="button_container">
-			<a href = "profile/edit?userid=<%=loggedUser.getId()%>"><button>Edit</button></a>
+			<a href = "profile/edit?userid=<%=user.getId()%>"><button>Edit</button></a>
 			<a href = "profile/logout"><button>Log Out</button></a>
 		</div>
 	</div>

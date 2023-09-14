@@ -6,7 +6,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-</head>
+<head>
+<title>Admin Product List</title>
 <style>
 
 *{
@@ -61,6 +62,7 @@ button:hover {
 }
 }
 </style>
+</head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
