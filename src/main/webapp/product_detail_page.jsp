@@ -60,7 +60,7 @@ textarea {
 /* --------side-------- */
 .side {
 	width: 40%;
-	margin-top: 60px;
+	margin-top: 10%;
 	/* margin-left: auto; */
 	/* margin-right: auto; */
 }
@@ -199,9 +199,9 @@ textarea {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<%
-        ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
-        int categoryId = product.getCategoryId();
-    %>
+	ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
+	int categoryId = product.getCategoryId();
+	%>
 	<div class="whole">
 		<section class="main">
 			<div class="main_img">
@@ -213,50 +213,61 @@ textarea {
 				<h1><%=product.getName()%></h1>
 				<p><%=product.getDescription()%></p>
 				<div class="price1">
-					<p></p>
+					<p>
+						<%
+						if (categoryId == 1) {
+							// Find and display the default price for categoryId 1
+							List<ProductPrice> prices = product.getPrices();
+							if (prices != null && !prices.isEmpty()) {
+								for (ProductPrice price : prices) {
+							if (price.getEndDate() == null && price.getQuantity() == 1) {
+						%>
+						Price: Rs.
+						<%=price.getPrice()%>
+						<%
+									}
+								}
+							}
+						} else {
+						List<ProductPrice> prices = product.getPrices();
+						if (prices != null && !prices.isEmpty()) {
+						for (ProductPrice price : prices) {
+						if (price.getEndDate() == null && price.getQuantity() == 1) {
+						%>
+						Price: Rs.
+						<%=price.getPrice()%>
+						<%
+									}
+								}
+							}
+						}
+						%>
+					</p>
 				</div>
-
 				<%
-        if (categoryId == 1) {
-    %>
+				if (categoryId == 1) {
+				%>
 				<div class="spec">
 					<h2>WEIGHT</h2>
 					<div class="spec-buttons">
 						<%
-                            List<ProductPrice> prices = product.getPrices();
-                            if (prices != null && !prices.isEmpty()) {
-                                for (int i = 0; i < prices.size(); i++) {
-                                    ProductPrice price = prices.get(i);
-                                    if (price.getEndDate() == null) {
-                                        String buttonId = "priceButton" + i;
-                        %>
-						<button class="weights" id="<%=buttonId%>"
-							onclick="displayPrice('<%=price.getPrice()%>')"><%=price.getQuantity()%>
+						List<ProductPrice> prices = product.getPrices();
+						if (prices != null && !prices.isEmpty()) {
+							for (int i = 0; i < prices.size(); i++) {
+								ProductPrice price = prices.get(i);
+								if (price.getEndDate() == null) {
+						%>
+						<button class="weights" id="<%=price.getId()%>"
+							onclick="displayPrice('<%=price.getPrice()%>',<%=price.getId()%>)"><%=price.getQuantity()%>
 							KG
 						</button>
 						<%
-                                    }
-                                }
-                            }
-                        %>
+								}
+							}
+						}
+						%>
 					</div>
 				</div>
-				<%}else{ %>
-					<div class="price1">
-					<%
-                            List<ProductPrice> prices = product.getPrices();
-                            if (prices != null && !prices.isEmpty()) {
-                                for (int i = 0; i < prices.size(); i++) {
-                                    ProductPrice price = prices.get(i);
-                                    if (price.getEndDate() == null && price.getQuantity() == 1) {%>
-                 						<p> Rs. <%=price.getPrice() %></p>
-                                   <% }
-                                }
-                            }
-                        %>
-				</div>
-					
-				<%} %>
 				<div class="tarea">
 					<textarea placeholder="Enter special message here" id="tarea"
 						rows="4" cols="30"></textarea>
@@ -264,16 +275,46 @@ textarea {
 			</div>
 			<div class="buttons">
 				<div class="add" data-id="">
-					<button id="add">Add to cart</button>
+					<a href="priceid=" id="addToCartButton"><button>Add to cart</button></a>
 				</div>
 			</div>
+			<%
+			} else {
+			List<ProductPrice> prices = product.getPrices();
+			if (prices != null && !prices.isEmpty()) {
+				for (int i = 0; i < prices.size(); i++) {
+					ProductPrice price = prices.get(i);
+					if (price.getEndDate() == null) {
+			%>
+			<div class="buttons">
+				<div class="add" data-id="">
+					<a href="priceid = <%=price.getId() %>" id="addToCartButton"><button>Add to cart</button></a>
+				</div>
+			</div>
+			<%
+						}
+					}
+				}
+			}
+			%>
 		</section>
 	</div>
 	<script>
-		function displayPrice(price) {
-			document.querySelector('.price1 p').textContent = "Price: Rs. "
-					+ price;
-		}
-	</script>
+    function displayPrice(price, buttonId) {
+        // Update the href of the "Add to cart" button based on the selected price
+        var addToCartButton = document.getElementById('addToCartButton');
+        addToCartButton.href = 'add_to_cart.jsp?price=' + price;
+
+        // Display the selected price
+        document.querySelector('.price1 p').textContent = "Price: Rs. " + price;
+
+        // Highlight the selected spec button (you can add CSS styles for this)
+        var specButtons = document.querySelectorAll('.weights');
+        specButtons.forEach(function(button) {
+            button.classList.remove('selected');
+        });
+        document.getElementById(buttonId).classList.add('selected');
+    }
+</script>
 </body>
 </html>
