@@ -1,0 +1,293 @@
+*{
+    padding : 0;
+    margin: 0;
+}
+
+body{
+    margin-top: 10rem;
+}
+
+.full {
+    width: 85%;
+    padding: 1% 2% 1% 2%;
+    margin: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    margin-bottom: 5rem;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    padding: 0 0 10px 0;
+    margin: 1rem 0 0 0 ;
+}
+
+h4 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h5 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+small {
+    font-family: 'Telex', sans-serif;
+    font-size: 15px;
+}
+
+h3 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+    font-size: 28px;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+b {
+    font-family: 'Telex', sans-serif;
+}
+
+span {
+    font-family: 'Telex', sans-serif;
+    font-size: 14px;
+}
+
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
+
+.main {
+    display: flex;
+}
+
+.main h2 {
+    text-align: center;
+}
+
+.main section {
+    width: 70%;
+    margin: 2%;
+}
+
+.main aside {
+    width: 30%;
+    margin: 0.4%;
+    border-radius: 5px;
+}
+
+.products {
+    display: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 3px;
+    margin: 3% 0 1% 0;
+    align-items: center;
+}
+
+
+.prod_details {
+    width: 100%;
+    margin: 3%;
+}
+
+.img {
+    margin: 3%;
+}
+
+.img img {
+    height: 150px;
+    width: 200px;
+}
+
+.quantity input {
+    width: 40px;
+    height: 30px;
+    border-radius: 3px;
+    border: solid black 1px;
+    font-size: 18px;
+}
+
+.price {
+    width: 100%;
+    margin: 0 0 0 3%;
+}
+
+.price div {
+    display : flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.price p {
+    text-align: center;
+}
+
+input[type="date"]{
+    background-color: #ffffff;
+    padding: 5px;
+    font-family: "Roboto Mono",monospace;
+    color: black;
+    font-size: 15px;
+    border: black solid 1px;
+    outline: none;
+    border-radius: 3px;
+}
+
+select {
+    background-color: #ffffff;
+    padding: 5px;
+    font-family: "Roboto Mono",monospace;
+    color: black;
+    font-size: 15px;
+    border: black solid 1px;
+    outline: none;
+    border-radius: 3px;
+}
+
+textarea{
+    resize: none;
+    margin-top: 0.5%;
+}
+
+.main aside div {
+    margin: 5% 0 5% 0;
+}
+
+.summary {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 5%;
+    padding-bottom: 2%;
+}
+
+.time input{
+    width: 45%;
+}
+
+.time select{
+    width: 50%;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.remove {
+    background: none;
+    border: none;
+    font-size: small;
+    margin-left: 5px;
+    color: red;
+}
+
+.address-card {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+.address-label {
+    width: 70%;
+}
+
+.address-head{
+    display: flex;
+    justify-content:space-between;
+}
+
+.address-head button {
+    border:solid 1px black;
+    cursor: pointer;
+    padding: 3px 8px;
+    background: none;
+    position: relative;
+    top: -3.5px;
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+}
+
+.order button {
+    padding: 10px 100px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.order button:hover{
+    border: solid 1px black;
+    background-color: white;
+    color: black;
+    transition: 0.1s;
+}
+
+.message {
+    margin-top:10em;
+    color: gray;
+}
+
+.edit_msg_btn {
+    background: none;
+    border: 1px solid black;
+    padding: 2px 5px;
+    margin-top: 0.5rem;
+    cursor:pointer;
+}
+
+.full#blur.active {
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#popup textarea {
+    margin-top: 15px;
+    padding: 2px;
+} 
+
+#popup button {
+    background: none;
+    border: 1px solid black;
+    padding: 5px 20px;
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#popup button:hover {
+    background-color:black;
+    color: white;
+    transition: 0.5s;
+}
+
+#popup.active {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    top: 50%;
+}

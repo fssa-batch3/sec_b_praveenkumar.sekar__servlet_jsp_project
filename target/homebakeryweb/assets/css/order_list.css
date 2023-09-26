@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+}
+
+h4 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h3 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h5 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+th {
+    font-family: 'Catamran', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
+
+.orders {
+    margin-top: 2rem;
+}
+
+.full {
+    min-height: 75vh;
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 9%;
+    margin-bottom: 2%;
+}
+
+div.sidebar{
+    width: 20%;
+    height: 50%;
+    padding-right: 5%;
+    position: sticky;
+    top: 0;
+}
+
+.main_content{
+    width:80%;
+    border-left: 1px solid black;
+    padding-left: 5%;
+}
+
+.sidebar div{
+    color:black;
+    padding: 15px;
+    margin: 0.5%;
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+}
+
+.sidebar div:hover{
+    background-color: black;
+    color: white;
+}
+
+.sidebar h4{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 78%;
+    padding-bottom: 2%;
+}
+
+.head button {
+    margin-right: 1.5rem;
+    font-family: 'Catamran', sans-serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user_order {
+    border: 1px solid black;
+    padding: 1rem;
+    width: 75%;
+    border-radius: 5px;
+    margin: 3rem;
+}
+
+.order_head{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px black;
+    padding-bottom: 0.5rem;
+    align-items: center;
+}
+
+.order_head div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.order_body h3{
+    margin-top: 1rem;
+}
+
+.order_head div h4 {
+    margin-right: 10%;
+    width: 30rem;
+}
+
+.orders_main {
+    margin: 0.5rem;
+}
+
+.orders_main p {
+    margin: 0.5rem;
+}
+
+.items {
+    border-bottom: 1px dashed black;
+}
+
+.items p {
+    margin: 0.5rem;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+#ordered_date_time {
+	width: 200px;
+}
+
+.order_btn button{
+    background: none;
+    background-color: none;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.order_btn button:hover{
+    background: black;
+    color: white;
+    transition: 0.5s;
+}
+
+.order_status p {
+    width: 120px;
+}
