@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Login</title>
 <style>
 body {
 	background-color: white;
+	font-family: aerial, sans-serif;
 }
 
 header {
@@ -110,7 +111,7 @@ form a {
 		font-weight: 700;
 		margin-left: 37px;
 	}
-	form input {
+	input[type="text"], input[type="password"] {
 		appearance: none;
 		background: none;
 		margin: 10px 0 0 37px;
@@ -123,26 +124,28 @@ form a {
 </style>
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="form-container">
-		<form role="form" onsubmit="signIn(event);">
-			<img
-				src="../../assets/Images/v1033-a-15-a-removebg-preview - Copy.svg"
-				width="100px" alt="logo">
+		<form action="login" method="post">
+			<img src="https://iili.io/J975QMQ.md.jpg" width="100px" alt="logo">
 			<h1>Sign in</h1>
 			<div class="email">
-				<label>Email:</label> <br> <input type="email" id="email"
-					value="johndoe123@gmail.com"> <br> <br>
+				<label for="email">Email:</label> <br> <input type="email"
+					id="email" name="email"
+					pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+					value="jane@example.com" required> <br> <br>
 			</div>
 			<div class="password">
-				<label>Password:</label> <br> <input type="password"
-					id="password" value="John@123"> <br> <br>
+				<label for="password">Password:</label> <br> <input
+					type="password" id="password" name="password" value="Qwerty@123"
+					required> <br> <br>
 			</div>
 			<div>
 				<button type="submit">Log In</button>
 			</div>
 			<a href="#">
 				<p>Forgot password?</p>
-			</a> <br> <a>
+			</a> <a href = "<%=request.getContextPath() %>/register">
 				<p>Don't have an account? Register</p>
 			</a>
 		</form>

@@ -39,6 +39,7 @@ public class CreateUserServlet extends HttpServlet {
 		
 		try {
 			userService.createUser(user);
+			System.out.println(user);
 			HttpSession login = request.getSession();
 			login.setAttribute("logged email", user.getEmail());
 			login.setAttribute("logged user", user);
@@ -48,6 +49,11 @@ public class CreateUserServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/homepage");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
+			String message = e.getMessage();
+			request.setAttribute("errormsg", message);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

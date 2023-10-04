@@ -181,7 +181,12 @@ textarea{
     justify-content: space-between;
 }
 
-.remove {
+.remove a{
+	font-size: small;
+    color: red;
+}
+
+.remove button{
     background: none;
     border: none;
     font-size: small;

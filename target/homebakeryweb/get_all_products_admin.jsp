@@ -6,8 +6,24 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-</head>
+<head>
+<title>Admin Product List</title>
 <style>
+
+*{
+	padding: 0;
+	margin: 0;
+}
+header {
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08)
+		0px 0px 0px 1px;
+	background-color: white;
+}
+
+.add-btn {
+	margin-top: 8%;
+}
+
 table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
@@ -20,16 +36,12 @@ td, th {
 	padding: 8px;
 }
 
-tr:nth-child(even) {
-	background-color: #DDDDDD;
-}
-
 button {
 	margin: 10px;
 	cursor: pointer;
 	outline: 0;
 	color: #fff;
-	background-color: #0d6efd;
+	background-color: #000;
 	border-color: #0d6efd;
 	display: inline-block;
 	font-weight: 400;
@@ -44,15 +56,19 @@ button {
 }
 
 button:hover {
-	color: #fff;
-	background-color: #0b5ed7;
-	border-color: #0a58ca;
+	color: #000;
+	background-color: #fff;
+	border-color: #000;
 }
 }
 </style>
+</head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 
-	<a href="product/new"><button>Add Product</button></a>
+	<div class = "add-btn">
+		<a href="product/new"><button>Add Product</button></a>
+	</div>
 
 	<table style="width: 100%">
 		<tr>

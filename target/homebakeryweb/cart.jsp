@@ -5,8 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart</title>
-<link rel="stylesheet" href="./assets/css/footer.css">
-<link rel="stylesheet" href="./assets/css/cart.css">
+<link rel="stylesheet" href="./assests/css/footer.css">
+<link rel="stylesheet" href="./assests/css/cart.css">
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>

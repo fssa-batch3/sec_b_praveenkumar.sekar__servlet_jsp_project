@@ -275,7 +275,10 @@ textarea {
 			</div>
 			<div class="buttons">
 				<div class="add" data-id="">
-					<a href="priceid=" id="addToCartButton"><button>Add to cart</button></a>
+					<a href="ordernow?productid=<%= product.getId()%>&priceid=" id="addToCartButton"><button>Add to cart</button></a>
+				</div>
+				<div class="add" data-id="">
+					<a href="ordernow?productid=<%= product.getId()%>&priceid=" id="orderNowButton"><button>Order Now</button></a>
 				</div>
 			</div>
 			<%
@@ -288,7 +291,10 @@ textarea {
 			%>
 			<div class="buttons">
 				<div class="add" data-id="">
-					<a href="priceid = <%=price.getId() %>" id="addToCartButton"><button>Add to cart</button></a>
+					<a href="ordernow?productid=<%=product.getId()%>&priceid=<%= price.getId()%>" id="orderNowButton"><button>Add to cart</button></a>
+				</div>
+				<div class="add" data-id="">
+					<a href="ordernow?productid=<%=product.getId()%>&priceid=<%= price.getId()%>" id="orderNowButton"><button>Order Now</button></a>
 				</div>
 			</div>
 			<%
@@ -303,7 +309,10 @@ textarea {
     function displayPrice(price, buttonId) {
         // Update the href of the "Add to cart" button based on the selected price
         var addToCartButton = document.getElementById('addToCartButton');
-        addToCartButton.href = 'add_to_cart.jsp?price=' + price;
+        var orderNowButton = document.getElementById("orderNowButton");
+        addToCartButton.href = 'ordernow?productid=' + <%= product.getId()%> + '&priceid=' + buttonId;
+        orderNowButton.href = 'ordernow?productid=' + <%= product.getId()%> + '&priceid=' + buttonId;
+     	
 
         // Display the selected price
         document.querySelector('.price1 p').textContent = "Price: Rs. " + price;

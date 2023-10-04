@@ -55,7 +55,7 @@ button:hover {
 }
 </style>
 <body>
-
+	<jsp:include page="header.jsp"></jsp:include>
 	<%
 	Set<User> userList = (Set<User>)request.getAttribute("users");
 	%>

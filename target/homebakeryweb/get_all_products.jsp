@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Bakery</title>
+<title>Products</title>
 <style>
 
 * {
@@ -32,6 +32,7 @@ header {
 	margin: auto;
 	margin-top: 5%;
 	text-decoration: none;
+	margin-bottom: 5%;
 }
 
 .product {
@@ -114,7 +115,7 @@ header {
 		%>
 		<div class="product">
 			<h2><%= product.getName() %></h2>
-			<p> <%=price.getPrice()%> </p>
+			<p>Rs. <%=price.getPrice()%> </p>
 
 			<img src="<%= product.getImageUrl() %>" alt="" class="img_size"> <a
 				href="product?productid=<%= product.getId()%>">

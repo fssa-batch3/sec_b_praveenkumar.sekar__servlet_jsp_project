@@ -6,20 +6,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Product Price Page</title>
 </head>
 <style>
+
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
 /* Style the table */
 table {
 	width: 100%;
 	border-collapse: collapse;
 	font-family: Arial, sans-serif;
+	margin-top: 7%;
 }
 
 /* Style table headers */
 th {
-	background-color: #333;
-	color: #fff;
 	padding: 10px;
 	text-align: left;
 }
@@ -41,7 +45,7 @@ td {
 }
 
 button {
-	background-color: #007bff;
+	background-color: #000;
 	color: #fff;
 	border: none;
 	padding: 5px 10px;
@@ -49,11 +53,13 @@ button {
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: #fff;
+	color: #000;
+	border: 1px solid black;
 }
 </style>
 <body>
-
+	<jsp:include page="header.jsp"></jsp:include>
 	<table>
 		<tr>
 			<th>Id</th>

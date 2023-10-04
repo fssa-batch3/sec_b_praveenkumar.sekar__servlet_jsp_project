@@ -4,46 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="./assets/css/profile.css">
+<link rel="stylesheet" href="./assets/css/footer.css">
 <meta charset="ISO-8859-1">
 <title>Profile Page</title>
-<link rel="stylesheet" href="./assets/css/footer.css">
-<link rel="stylesheet" href="./assets/css/profile.css">
 </head>
-<body>
-<%--
-	<jsp:include page="header.jsp"></jsp:include>
-
-	<%
-		User user = (User)request.getAttribute("user");
-	%>
-	<div class="profile_container">
-		<h2>PROFILE DETAILS</h2>
-		<div class="profile_details">
-			<div>
-				<h4>FIRST NAME</h4>
-				<p><%= user.getFirstName() %></p>
-			</div>
-			<div>
-				<h4>LAST NAME</h4>
-				<p><%=user.getLastName() %></p>
-			</div>
-			<div>
-				<h4>EMAIL</h4>
-				<p><%=user.getEmail()%></p>
-			</div>
-			<div>
-				<h4>PHONE</h4>
-				<p><%=user.getPhoneNo()%></p>
-			</div>
-		</div>
-		<div class="button_container">
-			<a href = "profile/edit?userid=<%=user.getId()%>"><button>Edit</button></a>
-			<a href = "profile/logout"><button>Log Out</button></a>
-		</div>
-	</div>
-</body>
-</html>
---%>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
@@ -62,12 +27,12 @@
                     <h4>ADDRESS BOOK</h4>
                 </div>
             </a>
-            <a href="orderlist">
+            <a href="../orders/order_list.html">
                 <div>
                     <h4>MY ORDERS</h4>
                 </div>
             </a>
-            <a href="profile/logout">
+            <a href = "profile/logout">
             <div>
                 <h4>LOG OUT</h4>
             </div>
@@ -76,7 +41,7 @@
         <section class="main_content" id="main">
             <div class="head">
                 <h2>ACCOUNT DETAILS</h2>
-                <a href="profile/edit?userid=<%=user.getId()%>">
+                <a href = "profile/edit?userid=<%=user.getId()%>">
                     <button>EDIT</button>
                 </a>
             </div>
@@ -158,31 +123,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://kit.fontawesome.com/9cc15ef83d.js" crossorigin="anonymous"></script>
-
-    <script src="../../assets/js/header.js"></script>
-
-    <script src="../../assets/js/profile.js"></script>
-
-    <script>
-
-        let section = document.querySelector(".sidebar");
-
-        if (uniqueID === "admin123@gmail.com") {
-            const link = document.createElement("a");
-            link.setAttribute("href", "../admin/admin_product_list.html");
-            section.prepend(link);
-
-            const admin_div = document.createElement("div");
-            admin_div.setAttribute("id", "admin");
-            link.appendChild(admin_div);
-
-            const title = document.createElement("h4");
-            title.innerText = "ADMIN PRODUCT LIST";
-            admin_div.appendChild(title);
-        }
-    </script>
 </body>
-
 </html>

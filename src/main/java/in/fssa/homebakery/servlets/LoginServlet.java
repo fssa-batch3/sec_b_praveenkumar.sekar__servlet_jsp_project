@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import in.fssa.homebakery.dto.ProductDetailDTO;
 import in.fssa.homebakery.exception.ValidationException;
+import in.fssa.homebakery.model.ProductPrice;
 import in.fssa.homebakery.model.User;
 import in.fssa.homebakery.service.UserService;
 
@@ -41,19 +43,26 @@ public class LoginServlet extends HttpServlet {
 		User user;
 		try {
 			user = userService.findByEmail(email);
+			HttpSession login = request.getSession();
+			if(password.equals(user.getPassword())) {
+				login.setAttribute("logged email", email);
+				login.setAttribute("logged user", user);
+				login.setAttribute("logged user id", user.getId());
+				
+				response.getWriter().println("User logged in successfully");
+				response.sendRedirect(request.getContextPath()+"/homepage");
+			}else {
+				throw new RuntimeException("Incorrect password");
+			}
 		}catch(ValidationException e) {
 			throw new RuntimeException("no user exists");
-		}
-		HttpSession login = request.getSession();
-		if(password.equals(user.getPassword())) {
-			login.setAttribute("logged email", email);
-			login.setAttribute("logged user", user);
-			login.setAttribute("logged user id", user.getId());
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			String message = e.getMessage();
+			request.setAttribute("errormsg", message);
 			
-			response.getWriter().println("User logged in successfully");
-			response.sendRedirect(request.getContextPath()+"/homepage");
-		}else {
-			throw new RuntimeException("Incorrect password");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Home Page</title>
 <style type="text/css">
 * {
 	padding: 0;
