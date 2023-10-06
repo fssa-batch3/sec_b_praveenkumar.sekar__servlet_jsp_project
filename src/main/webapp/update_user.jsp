@@ -7,17 +7,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update User</title>
-</head>
 <style>
-body {
-	font-family: Arial, sans-serif;
-	background-color: #f4f4f4;
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+	* {
     padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+label {
+    font-family: 'Catamaran', sans-serif;
+}
+
+button {
+    font-family: 'Telex', sans-serif;
+}
+
+body {
+    background-color: white;
 }
 
 header {
@@ -25,84 +42,171 @@ header {
     background-color: white;
 }
 
-.container {
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	width: 415px;
-	padding: 30px;
-	text-align: center;
-	margin: 20px auto;
+.form-container {
+    display: flex;
+    /* height: 100vh; */
 }
 
-h2 {
-	margin-bottom: 20px;
-	color: #333;
+form {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border-radius: 5px;
+    position: relative;
+    margin: 10% auto 5% auto;
+    background:  white;
+    padding: 5px 5px 20px 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-label {
-	display: block;
-	font-weight: bold;
-	margin-bottom: 5px;
-	color: #555;
+form img {
+    margin: auto;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="password"]
-	{
-	width: 90%;
-	padding: 10px;
-	margin-bottom: 15px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	transition: border-color 0.3s;
+form h1 {
+    text-align: center;
+    font-weight: 100;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus,
-	input[type="password"]:focus {
-	border-color: #007bff;
+
+form label {    
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 37px;
 }
 
-button {
-	background-color: #007bff;
-	color: #fff;
-	border: none;
-	border-radius: 4px;
-	padding: 10px 20px;
-	cursor: pointer;
-	transition: background-color 0.3s;
+
+
+form input {
+    appearance: none;
+    background: none;
+    font-size: 16px;
+    margin: 10px 0 0 37px;
+    border:none;
+    border-bottom: 1px solid black;
+    width: 365px;
+    padding: 5px;
 }
 
-button:hover {
-	background-color: #0056b3;
+form input:focus {
+    outline: none;
+}
+
+form input:focus:invalid {
+    border: 1px red solid;
+}
+
+form div:nth-of-type(6) {
+    display: flex;
+}
+
+form button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+    margin-left: 18%;
+    margin-bottom: 10px;
+    padding: 7px 90px;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: black;
+    color: white;
+}
+
+form a {
+    margin: auto;    
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+/* responsive */
+
+@media only screen and (max-width:700px) {
+    .form-container {
+        width: 100%;
+        padding-top: 40%;
+        padding-bottom: 20%;
+    }
+
+    .form-container form {
+        width: 70%;
+    }
+
+    .form-container form img {
+        width: 50px;
+    }
+
+    .form-container form h1 {
+        font-size: 20px;
+    }
+
+    form label { 
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 37px;
+    }
+    
+    form input {
+        appearance: none;
+        background: none;
+        margin: 10px 0 0 37px;
+        border:none;
+        border-bottom: 2px solid black;
+        width: 70%;
+        padding: 5px;
+    }
 }
 </style>
 </head>
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="container">
-		<h2>Update User</h2>
-
 		<%
 		User user = (User) request.getAttribute("userDetails");
-		%>
-
+		%>	
+	<div class="form-container">
 		<form action="update?userid=<%=user.getId()%>" method="POST">
-			<label for="firstName">First Name</label> <input type="text"
-				id="firstName" name="firstName" value="<%=user.getFirstName()%>"
-				required> <label for="lastName">Last Name</label> <input
-				type="text" id="lastName" name="lastName"
-				value="<%=user.getLastName()%>" required> <label
-				for="phoneNumber">Phone Number</label> <input type="tel"
-				id="phoneNumber" name="phoneNumber" value="<%=user.getPhoneNo()%>"
-				required> <label for="email">Email</label> <input
-				type="email" id="email" name="email" value="<%=user.getEmail()%>" readonly> 
-				<label for="password">Password</label> <input
-				type="password" id="password" name="password"
-				value="<%=user.getPassword()%>" required>
-
-			<button type="submit">Update</button>
-		</form>
+            <img src="https://iili.io/J975QMQ.md.jpg" width="100px" alt="logo">
+            <h1 style="margin:5%;">EDIT PROFILE</h1>
+            <div class="first_name">
+                <label for="firstName">First Name:</label>
+                <br>
+                <input type="text" name="firstName" value="<%=user.getFirstName()%>" id="first_name" pattern="[a-zA-Z0-9]+" required>
+                <br>
+                <br>
+            </div>
+            <div class="last_name">
+                <label for="lastName">Last Name:</label>
+                <br>
+                <input type="text" id="last_name" name="lastName" value="<%=user.getLastName()%>" pattern="[a-zA-Z0-9]+" required>
+                <br>
+                <br>
+            </div>
+            <div class="phone">
+                <label for="phoneNumber">Phone Number:</label>
+                <br>
+                <input type="tel" id="phoneNumber" name="phoneNumber" value="<%=user.getPhoneNo()%>" pattern="[0-9].{9}">
+                <br>
+                <br>
+            </div>
+            <div class="email">
+                <label for="email">Email:</label>
+                <br>
+                <input type="email" id="email" name="email" value="<%=user.getEmail()%>" readonly>
+                <br>
+                <br>
+            </div>
+            <label style="display: none;" for="password" ></label>
+            <input name = "password" type="hidden" value="<%=user.getPassword()%>">
+            <div class="submit">
+                <button type="submit">CONFIRM EDIT</button>
+            </div>
+        </form>
 	</div>
 </body>
 

@@ -1,0 +1,176 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Catamran', sans-serif;
+}
+
+h4 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h3 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h5 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+h2 {
+    font-family: 'Catamaran', sans-serif;
+}
+
+p {
+    font-family: 'Telex', sans-serif;
+}
+
+th {
+    font-family: 'Catamran', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    background-color: white;
+}
+
+.full {
+    min-height: 75vh;
+    width: 90%;
+    display: flex;
+    margin: auto;
+    margin-top: 9%;
+    margin-bottom: 2%;
+}
+
+div.sidebar{
+    width: 20%;
+    height: 50%;
+    padding-right: 5%;
+    position: sticky;
+    top: 0;
+}
+
+.main_content{
+    width:80%;
+    border-left: 1px solid black;
+    padding-left: 5%;
+}
+
+.sidebar div{
+    color:black;
+    padding: 15px;
+    margin: 0.5%;
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+}
+
+.sidebar div:hover{
+    background-color: black;
+    color: white;
+}
+
+.sidebar h4{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 78%;
+    padding-bottom: 2%;
+}
+
+.order_detail {
+    margin-top: 3rem;
+    padding:1rem;
+    border: 1px solid black;
+    width: 75%;
+    border-radius: 5px;
+}
+
+.detail_head {
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.5rem;
+}
+
+.detail_main {
+    margin-top:1rem;
+}
+
+.details_body {
+    margin-top: 0.5rem;
+    border-bottom: 1px dashed black;
+}
+.details_body div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details_body div p {
+    margin: 0.5rem;
+}
+
+.total div {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.total {
+    border-bottom: 1px black dashed;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+}
+
+.delivered_to {
+    margin-top: 0.5rem;
+    border-bottom: 1px solid black;
+}
+
+.delivered_to div:nth-of-type(2) p{
+    margin: 0.5rem 0;
+}
+
+.del_head {
+    display:flex;
+    justify-content: space-between;
+}
+
+.delivery_time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reorder {
+    margin-top: 1rem;
+    display:flex;
+    justify-content: end;
+}
+
+.reorder button {
+    padding: 5px 10px;
+    background: none;
+    border: solid black 1px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.reorder button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}

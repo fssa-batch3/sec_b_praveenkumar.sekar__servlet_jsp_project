@@ -1,3 +1,4 @@
+<%@page import="in.fssa.homebakery.model.User"%>
 <%@page import="in.fssa.homebakery.model.ProductPrice"%>
 <%@page import="java.util.List"%>
 <%@page import="in.fssa.homebakery.dto.ProductDetailDTO"%>
@@ -201,6 +202,7 @@ textarea {
 	<%
 	ProductDetailDTO product = (ProductDetailDTO) request.getAttribute("product");
 	int categoryId = product.getCategoryId();
+	User loggedUser = (User) request.getSession().getAttribute("logged user");
 	%>
 	<div class="whole">
 		<section class="main">
@@ -268,18 +270,23 @@ textarea {
 						%>
 					</div>
 				</div>
-				<div class="tarea">
-					<textarea placeholder="Enter special message here" id="tarea"
-						rows="4" cols="30"></textarea>
-				</div>
 			</div>
 			<div class="buttons">
+			<%if (loggedUser != null) {%>
 				<div class="add" data-id="">
 					<a href="ordernow?productid=<%= product.getId()%>&priceid=" id="addToCartButton"><button>Add to cart</button></a>
 				</div>
 				<div class="add" data-id="">
 					<a href="ordernow?productid=<%= product.getId()%>&priceid=" id="orderNowButton"><button>Order Now</button></a>
 				</div>
+			<%} else{%>
+				<div class="add" data-id="">
+					<a href="<%=request.getContextPath()%>/login"><button>Add to cart</button></a>
+				</div>
+				<div class="add" data-id="">
+					<a href="<%=request.getContextPath()%>/login"><button>Order Now</button></a>
+				</div>
+			<%} %>
 			</div>
 			<%
 			} else {
