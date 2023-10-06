@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +20,14 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 import in.fssa.homebakery.dto.OrderDetailDTO;
 import in.fssa.homebakery.exception.ValidationException;
 import in.fssa.homebakery.service.OrderService;
+import in.fssa.homebakery.dto.ProductDetailDTO;
+import in.fssa.homebakery.exception.ValidationException;
+import in.fssa.homebakery.model.Product;
+import in.fssa.homebakery.model.ProductPrice;
+import in.fssa.homebakery.service.OrderService;
+import in.fssa.homebakery.service.ProductPriceService;
+import in.fssa.homebakery.service.ProductService;
+
 
 /**
  * Servlet implementation class OrderNowCreateServlet
@@ -37,6 +46,9 @@ public class OrderNowCreateServlet extends HttpServlet {
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		
 		String loggedUserEmail = (String) request.getSession().getAttribute("logged email");
+		
+		ProductService productService = new ProductService();
+		ProductPriceService priceService = new ProductPriceService();
 		
 		
 		String deliveryDateTime = deliveryDate + " " + deliveryTime;
@@ -78,6 +90,23 @@ public class OrderNowCreateServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/homepage");
 		} catch (ValidationException | ServiceException e) {
 			e.printStackTrace();
+			String message = e.getMessage();
+			request.setAttribute("errormsg", message);
+			
+			ProductDetailDTO product;
+			ProductPrice price;
+			try {
+				price = priceService.findByPriceId(priceId);
+				product = productService.getByProductId(productId);
+				request.setAttribute("product", product);
+				request.setAttribute("price", price);
+			} catch (in.fssa.homebakery.exception.ServiceException | ValidationException e1) {
+				e1.printStackTrace();
+			}
+			// Set prices as an attribute to be rendered in a JSP page
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/order_now.jsp");
+			dispatcher.forward(request, response);
 		}
         
 		

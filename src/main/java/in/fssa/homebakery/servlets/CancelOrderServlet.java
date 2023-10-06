@@ -37,7 +37,7 @@ public class CancelOrderServlet extends HttpServlet {
 		}
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/order_detail.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/order");
 		dispatcher.forward(request, response);
 	}
 

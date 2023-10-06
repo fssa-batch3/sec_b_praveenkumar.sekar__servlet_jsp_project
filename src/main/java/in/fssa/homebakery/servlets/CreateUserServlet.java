@@ -47,6 +47,7 @@ public class CreateUserServlet extends HttpServlet {
 			
 			response.getWriter().println("User logged in successfully");
 			response.sendRedirect(request.getContextPath() + "/homepage");
+			response.sendRedirect(request.getContextPath() + "/login");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();
 			String message = e.getMessage();

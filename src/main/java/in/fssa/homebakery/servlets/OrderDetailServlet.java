@@ -49,6 +49,7 @@ public class OrderDetailServlet extends HttpServlet {
 		}
 
 		// Forward to a JSP page for displaying prices
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/order_detail.jsp");
 		dispatcher.forward(request, response);
 	}
