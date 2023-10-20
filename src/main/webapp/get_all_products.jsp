@@ -103,6 +103,7 @@ header {
 	transform: scale(0.9);
 }
 </style>
+<link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -126,5 +127,47 @@ header {
 		}
 		%>
 	</div>
+	<footer>
+		<div class="foot">
+			<h2>HOME BAKERY</h2>
+			<div class="list">
+				<ul>
+					<li>
+						<h2>ABOUT</h2>
+					</li>
+					<li><a href="./index.html">Homepage</a></li>
+					<li><a href="../../../../index.html#about">About Us</a></li>
+					<li><a href="../../../../index.html#history">Our History</a></li>
+					<li><a href="./pages/products/product_list.html">Products</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<h2>PRODUCTS</h2>
+					</li>
+					<li><a href="./pages/products/product_list.html">Breads</a></li>
+					<li><a href="./pages/products/product_list.html">Cakes</a></li>
+					<li><a href="./pages/products/product_list.html">Breakfast
+							Pastries</a></li>
+				</ul>
+				<ul>
+					<li>
+						<h2>FOLLOW US</h2>
+					</li>
+					<li><a href="https://www.instagram.com/"> <img
+							src="./assets/Images/instagram.svg" width="40px" alt="Instagram">Instagram
+					</a></li>
+					<li><a href="https://twitter.com/"> <img
+							src="./assets/Images/twitter.svg" width="40px" alt="Twitter">Twitter
+					</a></li>
+
+					<li><a href="https://github.com/"> <img
+							src="./assets/Images/github.svg" width="40px" alt="Github">GitHub
+					</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</footer>
 </body>
 </html>

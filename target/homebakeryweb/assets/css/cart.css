@@ -181,7 +181,15 @@ textarea{
     justify-content: space-between;
 }
 
-.remove {
+<<<<<<< Updated upstream
+.remove a{
+	font-size: small;
+    color: red;
+}
+
+=======
+>>>>>>> Stashed changes
+.remove button{
     background: none;
     border: none;
     font-size: small;

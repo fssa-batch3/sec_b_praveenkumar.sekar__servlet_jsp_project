@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.fssa.homebakery.dto.ProductDetailDTO;
-import in.fssa.homebakery.service.ProductPriceService;
 import in.fssa.homebakery.service.ProductService;
 
 /**

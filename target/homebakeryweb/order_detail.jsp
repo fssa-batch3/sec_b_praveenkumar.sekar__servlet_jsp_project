@@ -35,11 +35,11 @@
 				<div id="address_book">
 					<h4>ADDRESS BOOK</h4>
 				</div>
-			</a> <a href="./order_list.html">
-				<div>
-					<h4>MY ORDERS</h4>
-				</div>
-			</a> <a href="profile/logout">
+			<a href="orderlist">
+                <div>
+                    <h4>MY ORDERS</h4>
+                </div>
+            </a><a href="profile/logout">
 				<div>
 					<h4>LOG OUT</h4>
 				</div>
@@ -97,12 +97,14 @@
 							</P>
 						</div>
 					</div>
+					<%if(order.getStatus()!= "CANCELLED"){%>
 					<div class="reorder">
 						<a href="<%= request.getContextPath()%>/cancelorder?orderid=<%=order.getId()%>"><button style="font-size: 80%;">
 							CANCEL ORDER
 						</button>
 						</a>
 					</div>
+					<%}%>
 				</div>
 			</div>
 		</section>

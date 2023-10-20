@@ -251,11 +251,7 @@ stroke-dashoffset
 	<h1 class="error-title">
     Woops! <br>Something went wrong :(
   </h1>
-<<<<<<< Updated upstream
-  <a href=""><h2 class="error-subtitle">
-=======
   <a href="<%= request.getContextPath()%>"><h2 class="error-subtitle">
->>>>>>> Stashed changes
    Return to Homepage
   </h2></a>
   </div>

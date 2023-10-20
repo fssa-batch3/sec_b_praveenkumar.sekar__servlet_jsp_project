@@ -746,6 +746,9 @@ svg {
   <h2 class="error-subtitle">
    Have you tried turning it off and on again?
   </h2>
+  <a href="<%= request.getContextPath()%>"><h2 class="error-subtitle">
+   Return to Homepage
+  </h2></a>
 </div>
 </body>
 </html>

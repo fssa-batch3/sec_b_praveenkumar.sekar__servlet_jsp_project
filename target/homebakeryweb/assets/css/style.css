@@ -47,7 +47,7 @@ header{
 }
 
 .bg-img {
-    background-image: url(../Images/bhuwan-bansal-NBTqo3Ig73w-unsplash-overlay\ \(2\).jpg);
+	background-image: url(../Images/homepageimage.jpg);
     filter: grayscale(15%);
     background-size: cover;
 }

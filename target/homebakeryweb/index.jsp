@@ -10,8 +10,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home Bakery</title>
-<link rel="stylesheet" href="./assests/css/style.css">
-<link rel="stylesheet" href="./assests/css/footer.css">
+<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="./assets/css/footer.css">
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>

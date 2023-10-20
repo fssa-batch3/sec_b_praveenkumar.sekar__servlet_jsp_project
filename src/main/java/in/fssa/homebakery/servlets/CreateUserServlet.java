@@ -29,6 +29,9 @@ public class CreateUserServlet extends HttpServlet {
 		
 		User user = new User();
 		
+		String pw = request.getParameter("password");
+		String cpw = request.getParameter("confirmPassword");
+		
 		user.setFirstName(request.getParameter("firstName"));
 		user.setLastName(request.getParameter("lastName"));
 		user.setEmail(request.getParameter("email"));
@@ -38,6 +41,11 @@ public class CreateUserServlet extends HttpServlet {
 		UserService userService = new UserService();
 		
 		try {
+			if(!pw.equals(cpw)) {
+				
+				throw new ValidationException("Password does not match");
+			}
+			
 			userService.createUser(user);
 			System.out.println(user);
 			HttpSession login = request.getSession();
@@ -46,7 +54,6 @@ public class CreateUserServlet extends HttpServlet {
 			login.setAttribute("logged user id", user.getId());
 			
 			response.getWriter().println("User logged in successfully");
-			response.sendRedirect(request.getContextPath() + "/homepage");
 			response.sendRedirect(request.getContextPath() + "/login");
 		} catch (ServiceException | ValidationException e) {
 			e.printStackTrace();

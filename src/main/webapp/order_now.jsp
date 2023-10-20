@@ -7,8 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order Now</title>
-<link rel="stylesheet" href="./assests/css/footer.css">
-<link rel="stylesheet" href="./assests/css/cart.css">
+<link rel="stylesheet" href="./assets/css/footer.css">
+<link rel="stylesheet" href="./assets/css/cart.css">
 <style>
 	.alert {
   position: relative;

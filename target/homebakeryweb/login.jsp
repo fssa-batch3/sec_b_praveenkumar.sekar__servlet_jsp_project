@@ -85,7 +85,7 @@ form button:hover {
 form a {
 	margin: auto;
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 5px;
 	text-decoration: none;
 	color: black;
 }
@@ -121,14 +121,78 @@ form a {
 		padding: 5px;
 	}
 }
+
+.alert {
+	position: relative;
+	top: 10;
+	left: 0;
+	width: auto;
+	height: auto;
+	padding: 10px;
+	margin: 10px;
+	margin-right: 50px;
+	line-height: 1.8;
+	border-radius: 5px;
+	cursor: hand;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-weight: 400;
+}
+
+.alertCheckbox {
+	display: none;
+}
+
+:checked+.alert {
+	display: none;
+}
+
+.alertText {
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 16px;
+}
+
+.alertClose {
+	float: right;
+	padding-top: 5px;
+	font-size: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+.error {
+	background-color: #FEE;
+	border: 1px solid #EDD;
+	color: #A66;
+}
 </style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
+	<%
+	String error = (String) request.getAttribute("errormsg");
+	%>
 	<div class="form-container">
 		<form action="login" method="post">
 			<img src="https://iili.io/J975QMQ.md.jpg" width="100px" alt="logo">
 			<h1>Sign in</h1>
+			<%
+			if (error != null && !error.isEmpty()) {
+			%>
+			<label> <input type="checkbox" class="alertCheckbox"
+				autocomplete="off" />
+				<div class="alert error">
+					<span class="alertClose">X</span> <span class="alertText"><%=error%><br
+						class="clear" /> </span>
+				</div>
+			</label>
+			<%
+			}
+			%>
 			<div class="email">
 				<label for="email">Email:</label> <br> <input type="email"
 					id="email" name="email"
@@ -145,7 +209,7 @@ form a {
 			</div>
 			<a href="#">
 				<p>Forgot password?</p>
-			</a> <a href = "<%=request.getContextPath() %>/register">
+			</a> <a href="<%=request.getContextPath()%>/register">
 				<p>Don't have an account? Register</p>
 			</a>
 		</form>

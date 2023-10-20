@@ -6,6 +6,7 @@
 	<display-name>HomeBakeryWebApp</display-name>
 	<welcome-file-list>
 		<welcome-file>HomepageServlet</welcome-file>
+		<welcome-file>homepage</welcome-file>
 	</welcome-file-list>
 	<error-page>
 <!-- 		<exception-type>java.lang.Exception</exception-type> For handling exceptions-->

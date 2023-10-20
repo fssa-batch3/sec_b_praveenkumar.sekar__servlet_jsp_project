@@ -9,6 +9,7 @@
 .form-container {
 	display: flex;
 	/* height: 100vh; */
+	font-family: aerial, sans-serif;
 }
 
 form {
@@ -56,7 +57,7 @@ form input:focus:invalid {
 	border: 1px red solid;
 }
 
-form div:nth-of-type(6) {
+form div:nth-of-type(7) {
 	display: flex;
 }
 
@@ -78,7 +79,7 @@ form button:hover {
 form a {
 	margin: auto;
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 5px;
 	text-decoration: none;
 	color: black;
 }
@@ -186,6 +187,11 @@ form a {
 					title="Password must contain(Uppercase, Lowercase, Special character, Number) and min 8 characters."
 					value="John@123" name="password" required> <br> <br>
 			</div>
+			<div class="confirm_password">
+        		<label for="confirm_password">Confirm Password:</label> <br>
+        		<input type="password" id="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must match the one above." name="confirmPassword" required>
+        		<br> <br>
+    		</div>
 			<div class="submit">
 				<button type="submit">Register</button>
 			</div>

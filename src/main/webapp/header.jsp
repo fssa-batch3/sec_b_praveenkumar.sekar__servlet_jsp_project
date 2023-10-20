@@ -137,8 +137,6 @@ nav ul li a:hover:after {
 					<li><a
 						href="<%=request.getContextPath()%>/login">LOG
 							IN</a></li>
-					<li><a
-						href="<%=request.getContextPath()%>/login">CART</a></li>
 				</ul>
 			</nav>
 		</div>

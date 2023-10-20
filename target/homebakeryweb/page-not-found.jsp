@@ -251,7 +251,7 @@ stroke-dashoffset
 	<h1 class="error-title">
     Woops! <br>Something went wrong :(
   </h1>
-  <a href=""><h2 class="error-subtitle">
+  <a href="<%= request.getContextPath()%>"><h2 class="error-subtitle">
    Return to Homepage
   </h2></a>
   </div>

@@ -29,6 +29,7 @@ public class EditUserServlet extends HttpServlet {
 		int userid = Integer.parseInt(userId);
 		try {
 			User user = userService.findByUserId(userid);
+			
 			request.setAttribute("userDetails", user);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/update_user.jsp");
 			dispatcher.forward(request, response);

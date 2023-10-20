@@ -130,6 +130,15 @@ div.sidebar{
     margin-top: 1rem;
 }
 
+<<<<<<< Updated upstream
+.main_content div h4 {
+=======
+.order_head div h4 {
+>>>>>>> Stashed changes
+    margin-right: 10%;
+    width: 30rem;
+}
+
 .orders_main {
     margin: 0.5rem;
 }
@@ -149,6 +158,10 @@ div.sidebar{
 .total {
     display: flex;
     justify-content: space-between;
+}
+
+#ordered_date_time {
+	width: 200px;
 }
 
 .order_btn button{

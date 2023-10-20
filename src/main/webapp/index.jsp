@@ -104,7 +104,7 @@
 	</div>
 	<div class="meet" id="history">
 		<img
-			src="./assests/Images/female-baker-holding-baked-fresh-macaroons-pastries-tray (1).jpg"
+			src="./assets/Images/female-baker-holding-baked-fresh-macaroons-pastries-tray (1).jpg"
 			width="50%" alt="female baker holding tray">
 		<div class="meet-para">
 			<h2>OUR HISTORY</h2>

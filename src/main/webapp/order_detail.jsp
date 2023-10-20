@@ -1,3 +1,4 @@
+<%@page import="in.fssa.homebakery.dto.OrderDetailDTO.OrderStatus"%>
 <%@page import="in.fssa.homebakery.model.User"%>
 <%@page import="in.fssa.homebakery.model.ProductPrice"%>
 <%@page import="in.fssa.homebakery.model.Product"%>
@@ -97,12 +98,14 @@
 							</P>
 						</div>
 					</div>
+					<%if(!OrderStatus.CANCELLED.equals(order.getStatus())){%>
 					<div class="reorder">
 						<a href="<%= request.getContextPath()%>/cancelorder?orderid=<%=order.getId()%>"><button style="font-size: 80%;">
 							CANCEL ORDER
 						</button>
 						</a>
 					</div>
+					<%} %>
 				</div>
 			</div>
 		</section>

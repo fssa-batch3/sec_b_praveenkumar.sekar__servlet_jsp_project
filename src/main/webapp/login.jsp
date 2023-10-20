@@ -85,7 +85,7 @@ form button:hover {
 form a {
 	margin: auto;
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 5px;
 	text-decoration: none;
 	color: black;
 }
