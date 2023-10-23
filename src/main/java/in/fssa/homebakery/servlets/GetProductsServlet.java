@@ -1,6 +1,9 @@
 package in.fssa.homebakery.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import in.fssa.homebakery.dto.ProductDetailDTO;
+import in.fssa.homebakery.exception.ValidationException;
 import in.fssa.homebakery.service.ProductService;
 
 /**
@@ -23,10 +27,27 @@ public class GetProductsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ProductService prodService = new ProductService();
-		Set<ProductDetailDTO> productList = prodService.getAllProducts();
+		String pageStr = request.getParameter("p");
+		int pageNo = Integer.parseInt(pageStr);
 		
-		request.setAttribute("products", productList);
+		ProductService prodService = new ProductService();
+		Set<ProductDetailDTO> productSet;
+		try {
+			
+			int total = 5;
+			
+			productSet = prodService.getSetOfProducts((pageNo-1) * total);
+			
+			List<ProductDetailDTO> productList = new ArrayList<>(productSet); 
+	        Collections.sort(productList); 
+			
+			int totalPages = prodService.getCountOfActiveProducts();
+			request.setAttribute("products", productList);
+			request.setAttribute("count", totalPages);
+		} catch (ValidationException e) {
+			e.printStackTrace();
+		}
+		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");
 		dispatcher.forward(request, response);

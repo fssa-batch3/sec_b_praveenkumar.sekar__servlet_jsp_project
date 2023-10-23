@@ -133,7 +133,7 @@ nav ul li a:hover:after {
 			<nav>
 				<ul>
 					<li><a href="<%=request.getContextPath()%>/homepage">HOME</a></li>
-					<li><a href="<%=request.getContextPath()%>/products">PRODUCTS</a></li>
+					<li><a href="<%=request.getContextPath()%>/products?p=1">PRODUCTS</a></li>
 					<li><a
 						href="<%=request.getContextPath()%>/login">LOG
 							IN</a></li>
@@ -166,7 +166,7 @@ nav ul li a:hover:after {
 			<nav>
 				<ul>
 					<li><a href="<%=request.getContextPath()%>/homepage">HOME</a></li>
-					<li><a href="<%=request.getContextPath()%>/products">PRODUCTS</a></li>
+					<li><a href="<%=request.getContextPath()%>/products?p=1">PRODUCTS</a></li>
 					<li><a href="${main_source}/pages/Cart/cart.html">CART</a></li>
 					<li><a href="<%=request.getContextPath()%>/profile">PROFILE</a></li>
 				</ul>
