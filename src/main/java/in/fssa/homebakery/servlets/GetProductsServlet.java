@@ -28,26 +28,29 @@ public class GetProductsServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String pageStr = request.getParameter("p");
+
 		int pageNo = Integer.parseInt(pageStr);
-		
+
 		ProductService prodService = new ProductService();
 		Set<ProductDetailDTO> productSet;
+		List<ProductDetailDTO> productList = null;
 		try {
-			
+
 			int total = 5;
-			
-			productSet = prodService.getSetOfProducts((pageNo-1) * total);
-			
-			List<ProductDetailDTO> productList = new ArrayList<>(productSet); 
-	        Collections.sort(productList); 
-			
-			int totalPages = prodService.getCountOfActiveProducts();
+			int totalPages = 0;
+
+			productSet = prodService.getSetOfProducts((pageNo - 1) * total);
+
+			productList = new ArrayList<>(productSet);
+			Collections.sort(productList);
+			totalPages = prodService.getCountOfActiveProducts();
+
+			request.setAttribute("category", "all");
 			request.setAttribute("products", productList);
 			request.setAttribute("count", totalPages);
 		} catch (ValidationException e) {
 			e.printStackTrace();
 		}
-		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");
 		dispatcher.forward(request, response);

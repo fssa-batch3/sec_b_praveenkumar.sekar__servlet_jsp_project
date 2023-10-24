@@ -159,7 +159,7 @@ header {
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="buttons">
 		<button class="button all active">All</button>
-		<button class="button white">Breads</button>
+		<a href = "<%=request.getContextPath()%>/products/breads?p=1"><button class="button white">Breads</button></a>
 		<button class="button grey">Breakfast-Pastries</button>
 		<button class="button blue">Cakes</button>
 	</div>
@@ -192,7 +192,7 @@ header {
       	int count = (int) request.getAttribute("count");
       	int itemsPerPage = 5;
       	int noOfPages = count/itemsPerPage;
-      	if(noOfPages % itemsPerPage != 0)
+      	if(count % noOfPages != 0)
       		noOfPages += 1;
       	
       	String pageStr = request.getParameter("p");
@@ -200,8 +200,12 @@ header {
       	
       	for(int i = 1; i <= noOfPages; i++){
       %>
-        <a href="<%=request.getContextPath()%>/products?p=<%= i %>"><li><%= i %></li></a>
-        <% }%>
+      	<%if(pageNo == i) {%>
+        <a class = "is-active" href="<%=request.getContextPath()%>/products?p=<%= i %>"><li><%= i %></li></a>
+        <% }else{%>
+        	<a href="<%=request.getContextPath()%>/products?p=<%= i %>"><li><%= i %></li></a>
+        <%}
+      	}%>
       </ul>
     </div>
 	<footer>

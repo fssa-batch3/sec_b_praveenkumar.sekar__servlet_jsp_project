@@ -130,27 +130,27 @@ header {
 	transform: scale(0.9);
 }
 
-.pagination{
-  padding: 30px 0;
-  display: flex;
-  justify-content: center;
+.pagination {
+	padding: 30px 0;
+	display: flex;
+	justify-content: center;
 }
 
-.pagination ul{
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+.pagination ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
 
-.pagination a{
-  display: inline-block;
-  padding: 10px 18px;
-  color: #222;
+.pagination a {
+	display: inline-block;
+	padding: 10px 18px;
+	color: #222;
 }
 
-.p2 .is-active li{
-  font-weight: bold;
-  border-bottom: 3px solid #000;
+.p2 .is-active li {
+	font-weight: bold;
+	border-bottom: 3px solid #000;
 }
 </style>
 <link rel="stylesheet" href="./assets/css/footer.css">
@@ -158,10 +158,61 @@ header {
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="buttons">
-		<button class="button all active">All</button>
-		<button class="button white">Breads</button>
-		<button class="button grey">Breakfast-Pastries</button>
-		<button class="button blue">Cakes</button>
+		<%
+		String cate = (String) request.getAttribute("category");
+		if (cate.equals("all")) {
+		%>
+		<a href="<%=request.getContextPath()%>/products?p=1"><button
+				class="button all active">All</button></a>
+		<%
+		} else {
+		%>
+		<a href="<%=request.getContextPath()%>/products?p=1"><button
+				class="button all">All</button></a>
+		<%
+		}
+		%>
+
+		<%
+		if (cate.equals("bread")) {
+		%>
+		<a href="<%=request.getContextPath()%>/breads?p=1"><button
+				class="button white active">Breads</button></a>
+		<%
+		} else {
+		%>
+		<a href="<%=request.getContextPath()%>/breads?p=1"><button
+				class="button white">Breads</button></a>
+		<%
+		}
+		%>
+
+		<%
+		if (cate.equals("breakfast")) {
+		%>
+		<a href="<%=request.getContextPath()%>/breakfastpastries?p=1"><button
+				class="button grey active">Breakfast-Pastries</button></a>
+		<%
+		} else {
+		%>
+		<a href="<%=request.getContextPath()%>/breakfastpastries?p=1"><button
+				class="button grey">Breakfast-Pastries</button></a>
+		<%
+		}
+		%>
+		<%
+		if (cate.equals("cake")) {
+		%>
+		<a href="<%=request.getContextPath()%>/cakes?p=1"><button
+				class="button blue active">Cakes</button></a>
+		<%
+		} else {
+		%>
+		<a href="<%=request.getContextPath()%>/cakes?p=1"><button
+				class="button blue">Cakes</button></a>
+		<%
+		}
+		%>
 	</div>
 	<div class="product1">
 		<%
@@ -187,27 +238,41 @@ header {
 		%>
 	</div>
 	<div class="pagination p2">
-      <ul>
-      <% 
-      	int count = (int) request.getAttribute("count");
-      	int itemsPerPage = 5;
-      	int noOfPages = count/itemsPerPage;
-      	if(count % noOfPages != 0)
-      		noOfPages += 1;
-      	
-      	String pageStr = request.getParameter("p");
-		int pageNo = Integer.parseInt(pageStr);
-      	
-      	for(int i = 1; i <= noOfPages; i++){
-      %>
-      	<%if(pageNo == i) {%>
-        <a class = "is-active" href="<%=request.getContextPath()%>/products?p=<%= i %>"><li><%= i %></li></a>
-        <% }else{%>
-        	<a href="<%=request.getContextPath()%>/products?p=<%= i %>"><li><%= i %></li></a>
-        <%}
-      	}%>
-      </ul>
-    </div>
+		<ul>
+			<%
+			int count = (int) request.getAttribute("count");
+			int itemsPerPage = 5;
+			int noOfPages;
+
+			if (count == 0) {
+				noOfPages = 0; // Or handle this case as per your application logic
+			} else {
+				noOfPages = count / itemsPerPage;
+				if (count % itemsPerPage != 0) {
+					noOfPages += 1;
+				}
+			}
+
+			String pageStr = request.getParameter("p");
+			int pageNo = Integer.parseInt(pageStr);
+
+			for (int i = 1; i <= noOfPages; i++) {
+			%>
+			<%
+			if (pageNo == i) {
+			%>
+			<a class="is-active"
+				href="<%=request.getContextPath()%>/products?p=<%=i%>"><li><%=i%></li></a>
+			<%
+			} else {
+			%>
+			<a href="<%=request.getContextPath()%>/products?p=<%=i%>"><li><%=i%></li></a>
+			<%
+			}
+			}
+			%>
+		</ul>
+	</div>
 	<footer>
 		<div class="foot">
 			<h2>HOME BAKERY</h2>
