@@ -81,27 +81,6 @@
 				without fail.</p>
 		</div>
 	</div>
-	<div class="categories-head">
-		<h2>Categories</h2>
-		<p>Dive into wide range of Baked Goods</p>
-	</div>
-	<div class="categories">
-		<div>
-			<a href="./pages/products/product_list.html" alt="Cakes">
-				<p>Cakes</p>
-			</a>
-		</div>
-		<div>
-			<a href="./pages/products/product_list.html" alt="Breads">
-				<p>Breads</p>
-			</a>
-		</div>
-		<div>
-			<a href="./pages/products/product_list.html" alt="Breakfast Pastries">
-				<p>Breakfast Pastries</p>
-			</a>
-		</div>
-	</div>
 	<div class="meet" id="history">
 		<img
 			src="./assets/Images/female-baker-holding-baked-fresh-macaroons-pastries-tray (1).jpg"
