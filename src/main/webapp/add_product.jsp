@@ -105,21 +105,21 @@ button[type="submit"]:hover {
     <input type="checkbox" name="isVeg">
     
     <label for="imageUrl">Image URL</label>
-    <input type="url" name="imageUrl" required>
+    <input id="imgUrl" type="url" name="imageUrl" required>
     
     <div id="priceField1" style="display:none;">
     	<label for="price">Price</label>
-    	<input type="number" name="price" min="1" value = "1" required>
+    	<input type="number" name="price" min="1" max="5000" value = "1" required>
     </div>
     <div id="priceField2">
     	<label for="price1/2">1/2Kg Price</label>
-    	<input type="number" name="price1/2" min="1" value = "1" required>
+    	<input type="number" name="price1/2" min="1" max="5000" value = "1" required>
     	
         <label for="price1">1Kg Price</label>
-        <input type="number" name="price1" min="1" value = "1" required>
+        <input type="number" name="price1" min="1" max="5000" value = "1" required>
         
         <label for="price2">2Kg Price</label>
-        <input type="number" name="price2" min="1" value = "1" required>
+        <input type="number" name="price2" min="1" max="5000" value = "1" required>
     </div>
     
     <button type="submit">SUBMIT</button>
@@ -142,6 +142,20 @@ button[type="submit"]:hover {
         	priceField1.style.display = 'none';
             priceField2.style.display = 'block';
         }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var textArea = document.querySelector('textarea');
+        var imageURL = document.getElementById('imgUrl');
+        
+        imageURL.addEventListener('input', function() {
+            this.value = this.value.replace(/  +/g, ' ');
+        });
+
+        textArea.addEventListener('input', function() {
+            this.value = this.value.replace(/  +/g, ' ');
+        });
     });
 </script>
 </body>

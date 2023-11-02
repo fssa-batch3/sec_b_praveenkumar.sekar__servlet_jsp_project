@@ -5,7 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Register</title>
+
 <style>
+
+header {
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08)
+		0px 0px 0px 1px;
+	background-color: white;
+}
+
 .form-container {
 	display: flex;
 	/* height: 100vh; */

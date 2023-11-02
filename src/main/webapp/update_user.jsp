@@ -190,7 +190,7 @@ form a {
             <div class="phone">
                 <label for="phoneNumber">Phone Number:</label>
                 <br>
-                <input type="tel" id="phoneNumber" name="phoneNumber" value="<%=user.getPhoneNo()%>" pattern="[0-9].{9}">
+                <input type="tel" id="phoneNumber" name="phoneNumber" value="<%=user.getPhoneNo()%>" pattern="[0-9].{9}" readonly>
                 <br>
                 <br>
             </div>

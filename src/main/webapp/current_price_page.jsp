@@ -86,8 +86,13 @@ button:hover {
 			<td><%=price.getEndDate()%></td>
 			<td><a href="price/edit?priceid=<%=price.getId()%>&productid=<%=productid %>"><button>Update</button></a>
 			</td>
-			<td><a href="price/delete?priceid=<%=price.getId()%>&productid=<%=productid %>""><button>Delete</button></a>
+			<%if(priceList.size() == 1){%>
+			<td><a href="price/delete?priceid=<%=price.getId()%>&productid=<%=productid %>"><button disabled>Delete</button></a>
 			</td>
+			<%}else{%>
+			<td><a href="price/delete?priceid=<%=price.getId()%>&productid=<%=productid %>"><button>Delete</button></a>
+			</td>
+			<%} %>
 		</tr>
 		<%
 		}
