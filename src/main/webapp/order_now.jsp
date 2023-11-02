@@ -203,14 +203,14 @@
 						<h2>FOLLOW US</h2>
 					</li>
 					<li><a href="https://www.instagram.com/"> <img
-							src="../../assets/Images/instagram.svg" width="40px"
+							src="./assets/Images/instagram.svg" width="40px"
 							alt="Instagram">Instagram
 					</a></li>
 					<li><a href="https://twitter.com/"> <img
-							src="../../assets/Images/twitter.svg" width="40px" alt="Twitter">Twitter
+							src="./assets/Images/twitter.svg" width="40px" alt="Twitter">Twitter
 					</a></li>
 					<li><a href="https://github.com/"> <img
-							src="../../assets/Images/github.svg" width="40px" alt="GitHub">GitHub
+							src="./assets/Images/github.svg" width="40px" alt="GitHub">GitHub
 					</a></li>
 				</ul>
 			</div>
@@ -266,11 +266,18 @@
 		const afternoon = document.getElementById("afternoon");
 		const evening = document.getElementById("evening");
 		const night = document.getElementById("night");
+		const standard = document.getElementById("standard");
 
 		let del_time = document.getElementById("del_time");
 
 		del_date.addEventListener("change", function getDate() {
 			let todate = del_date.value;
+			
+			if(todate != today){
+				standard.setAttribute("disabled", "disabled");
+			}else{
+				standard.removeAttribute("disabled");
+			}
 
 			if (todate === today && hours >= 11) {
 				morning.setAttribute("disabled", "disabled");

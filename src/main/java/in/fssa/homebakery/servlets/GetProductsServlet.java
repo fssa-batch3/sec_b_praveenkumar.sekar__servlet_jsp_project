@@ -51,6 +51,7 @@ public class GetProductsServlet extends HttpServlet {
 		} catch (ValidationException e) {
 			e.printStackTrace();
 		}
+		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("get_all_products.jsp");
 		dispatcher.forward(request, response);

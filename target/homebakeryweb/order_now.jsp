@@ -26,6 +26,19 @@
   font-weight: 400;
 }
 
+.remove a{
+	font-size: small;
+    color: red;
+}
+
+.remove button{
+    background: none;
+    border: none;
+    font-size: small;
+    margin-left: 5px;
+    color: red;
+}
+
 .alertCheckbox {
   display: none;
 }
@@ -92,7 +105,7 @@
 								<%
 								}
 								%>
-								<small>Price: <%=price.getPrice()%></small> <a
+								<small>Price: <%=price.getPrice()%></small><a
 									href="<%=request.getContextPath()%>" class="remove">
 									<button class="remove">Remove</button>
 								</a>
@@ -261,7 +274,8 @@
 		del_date.setAttribute("min", today);
 		del_date
 				.setAttribute("max", tenDaysFromNow.toISOString().split('T')[0]);
-
+	
+		const standard = document.getElementById("standard");
 		const morning = document.getElementById("morning");
 		const afternoon = document.getElementById("afternoon");
 		const evening = document.getElementById("evening");
@@ -271,6 +285,12 @@
 
 		del_date.addEventListener("change", function getDate() {
 			let todate = del_date.value;
+			
+			if(todate != today){
+				standard.setAttribute("disabled", "disabled");
+			}else {
+				standard.removeAttribute("disabled");
+			}
 
 			if (todate === today && hours >= 11) {
 				morning.setAttribute("disabled", "disabled");

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import in.fssa.homebakery.exception.PersistanceException;
 import in.fssa.homebakery.exception.ServiceException;
 import in.fssa.homebakery.exception.ValidationException;
 import in.fssa.homebakery.model.User;
@@ -47,15 +48,11 @@ public class CreateUserServlet extends HttpServlet {
 			}
 			
 			userService.createUser(user);
-			System.out.println(user);
-			HttpSession login = request.getSession();
-			login.setAttribute("logged email", user.getEmail());
-			login.setAttribute("logged user", user);
-			login.setAttribute("logged user id", user.getId());
 			
-			response.getWriter().println("User logged in successfully");
+			response.getWriter().println("User created successfully");
 			response.sendRedirect(request.getContextPath() + "/login");
-		} catch (ServiceException | ValidationException e) {
+			
+		} catch (RuntimeException | ValidationException e) {
 			e.printStackTrace();
 			String message = e.getMessage();
 			request.setAttribute("errormsg", message);

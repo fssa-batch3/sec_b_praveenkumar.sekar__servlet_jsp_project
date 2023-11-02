@@ -180,15 +180,10 @@ textarea{
     display: flex;
     justify-content: space-between;
 }
-
-<<<<<<< Updated upstream
 .remove a{
 	font-size: small;
     color: red;
 }
-
-=======
->>>>>>> Stashed changes
 .remove button{
     background: none;
     border: none;

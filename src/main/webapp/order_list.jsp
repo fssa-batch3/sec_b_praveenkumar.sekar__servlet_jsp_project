@@ -131,15 +131,15 @@
 						<h2>FOLLOW US</h2>
 					</li>
 					<a href="https://www.instagram.com/">
-						<li><img src="../../assets/Images/instagram.svg" width="40px"
+						<li><img src="./assets/Images/instagram.svg" width="40px"
 							alt="instagram">Instagram</li>
 					</a>
 					<a href="https://twitter.com/">
-						<li><img src="../../assets/Images/twitter.svg" width="40px"
+						<li><img src="./assets/Images/twitter.svg" width="40px"
 							alt="twitter">Twitter</li>
 					</a>
 					<a href="https://github.com/">
-						<li><img src="../../assets/Images/github.svg" width="40px"
+						<li><img src="./assets/Images/github.svg" width="40px"
 							alt="GitHub">GitHub</li>
 					</a>
 				</ul>

@@ -21,7 +21,7 @@
 	%>
 	<div class="full">
 		<div class="sidebar">
-			<a href="../Profile/profile.html">
+			<a href="<%=request.getContextPath()%>/profile">
 				<div id="account_details">
 					<h4>ACCOUNT DETAILS</h4>
 				</div>

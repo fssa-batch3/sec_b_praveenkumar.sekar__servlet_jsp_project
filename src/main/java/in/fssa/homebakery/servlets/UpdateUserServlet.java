@@ -34,7 +34,6 @@ public class UpdateUserServlet extends HttpServlet {
 		user.setFirstName(request.getParameter("firstName"));
 		user.setLastName(request.getParameter("lastName"));
 		user.setEmail(request.getParameter("email"));
-		System.out.println(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
 		user.setPhoneNo(Long.parseLong(request.getParameter("phoneNumber")));
 
